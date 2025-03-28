@@ -1,0 +1,145 @@
+---
+execute:
+  echo: true
+format:
+  revealjs:
+    width: 1245
+    height: 700
+    menu: false
+    controls: true
+    transition: fade
+    auto-stretch: false
+    embed-resources: false
+    toc: false
+    center: true
+    slide-number: false
+    preview-links: false
+    output-file: "slides"
+    theme:
+        - simple
+        - style/style_background.scss
+filters:
+  - pyodide
+---
+
+## Use the arrows to navigate the presentation.
+
+--- 
+
+## { .custom-title }
+
+&#32; 
+
+---
+
+## Interacción Micrófono
+
+```{pyodide-python}
+import ipywidgets as widgets
+slider = widgets.IntSlider()
+display(slider)
+print(slider.value)
+```
+
+---
+
+
+## { .custom-title }
+::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
+[Avoiding "Deaths by PowerPoint"]{style="font-size: 20px; margin: 0px;"} <br>
+[Data Storytelling and Python to the rescue]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
+[Sebastián Flores, PyCon US 2024, May 18th]{style="font-size: 25px;"}
+:::
+
+::: {.notes}
+Welcome to my talk: Avoiding deaths by powerpoint - Data Storytelling and Python to the rescue.
+
+Just to be fair, deaths by powerpoint are not caused by the software. It's the speaker that lacks data storytelling tools and skills to make it more engaging! 
+:::
+
+---
+
+## About me
+::: columns
+::: {.column width="40%"}
+![](images/seba_avatar_gmail.png){fig-align="center"}
+:::
+::: {.column width="60%"}
+&#32;<br>
+
+* Sebastián Flores aka sebastiandres
+* Member of Python Chile
+* Collaborator to Streamlit and Vizzu
+* Chief Data Officer at uPlanner
+:::
+:::
+
+::: {.notes}
+My name is Sebastian Flores, you can find me as sebastiandres on most sites - wink wink you can follow me on github, twitter and linkedin. 
+I’m part of the Python Chile team, organizing the PyCon Chile and PyDay Chile events.
+I also collaborate with the libraries Streamlit and Vizzu.
+My real job is CDO at uPlanner.
+:::
+
+---
+
+## { .custom-section }
+[Data Storytelling]{style="font-size: 1em"}
+
+[Why Data Storytelling?]{style="font-size: 1.5em"}
+
+::: {.notes}
+OK, so, why data storytelling?
+:::
+
+---
+
+## ¿Storytelling?
+::: columns
+::: {.column width="50%"}
+![](images/fire.jpeg){fig-align="center"}
+:::
+::: {.column width="50%" .fragment .center}
+&#32;<br><br><br><br>
+Stories are 
+
+the first human technology
+:::
+:::
+
+:::{.notes}
+People have been telling stories since the begining, because it's just the way our brains work. 
+[click]
+It's a "built-in technology" because it allows for knowledge transmission. 
+It allows collective learning and cooperation at small and large scale.
+
+Stories are not a random collection of facts. There's a very specific order: start, conflict, conflict resolution, ending. 
+That's the pattern that the brain craves, because it can learn from it. That's why we consume so much stories in any form: books, comics, tv-series, movies, etcetera.
+So, what do you do when you know how something works? You hack it, of course!
+:::
+
+---
+
+## Interacción
+
+```{pyodide-python}
+saludo = "Hola"
+nombre = "mundo"
+print(saludo + " " + nombre)
+```
+
+&#32;<br><br>
+
+```{pyodide-python}
+# ¿Que vino primero, el huevo o la gallina?
+sorted(['🥚','🐔'])
+```
+
+## Interacción Micrófono
+
+```{pyodide-python}
+from ipywebrtc import AudioRecorder, CameraStream
+camera = CameraStream(constraints={'audio': True,'video':False})
+recorder = AudioRecorder(stream=camera)
+recorder
+```
