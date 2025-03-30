@@ -45,30 +45,128 @@ format:
 
 ---
 
+>>> Toda tecnología suficientemente avanzada parece magia.
+
+Arthur C. Clark
+
+---
+
 ## Parte 1
 
 La ilusión de la continuidad
 
 ---
 
-El computador & la ilusión de la continuidad.
-bits, just bits. 
-Imagen: bits + context/conventions -> representación
+## Desafío
+
+¿Qué contiene la siguiente cadena de bits?
+
+[00000000]{style="font-size: 80px; margin: 0px; color: white"}
+[00101010]{style="font-size: 80px; margin: 0px;"}
 
 ---
 
-todo es discretos: numeros, colores, gráficos, sonidos, etc etc.
+[00000000]{style="font-size: 80px; margin: 0px; color: white"}
+[00101010]{style="font-size: 80px; margin: 0px;"}
+
+[Podría ser el número 42 escrito en binario...]{.fragment}
 
 ---
 
-Alta fidelidad no es continuidad. Pero es una muy buena aproximación.
+[00000000]{style="font-size: 80px; margin: 0px; color: white"}
+[00101010]{style="font-size: 80px; margin: 0px;"}
+
+[Podría ser el carácter `*` en la convención ascii...]{.fragment}
+
+---
+
+[00000000]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[00101010]{style="font-size: 80px; margin: 0px;"}
+[00000101]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[00000101]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[00000101]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[00000101]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+
+[Podría ser parte de un número decimal, 0.4523 o $\pi$...]{.fragment}
+
+
+---
+
+[10000101]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[00100001]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[01000111]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[00001000]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[00101010]{style="font-size: 80px; margin: 0px;"}
+[01000101]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[11111111]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[11001101]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[01000111]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[00000101]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[00000101]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+[01110111]{style="font-size: 80px; margin: 0px; color:#D3D3D3"}
+
+[Podría ser parte de un archivo multimedia (video, imagen, audio, etc.)...]{.fragment}
+
+---
+
+En el computador **TODO** se representa con bits.
+
+`representación` `=` `bits` `+` `contexto` 
+
+[Eso significa que todo es discreto.  
+No existe ni el infinito ni lo continuo.]{.fragment}
+
+---
+
+Alta fidelidad no es continuidad.
+
+![](code/derivada_5.png){fig-align="center"}
+
+---
+
+Alta fidelidad no es continuidad.
+
+![](code/derivada_7.png){fig-align="center"}
+
+---
+
+Alta fidelidad no es continuidad.
+
+![](code/derivada_9.png){fig-align="center"}
+
+---
+
+Alta fidelidad no es continuidad.
+
+![](code/derivada_11.png){fig-align="center"}
+
+---
+
+Alta fidelidad no es continuidad.
+
+![](code/derivada_21.png){fig-align="center"}
+
+---
+
+Alta fidelidad no es continuidad. [Pero puede ser suficiente...]{.fragment fragment-index=1}
+
+![](code/derivada_31.png){fig-align="center"}
 
 ---
 
 No necesitamos la realidad, necesitamos una buena aproximación. Suficiente para engañar a los sentidos.
 
-Otro ejemplo: una película. Ojo humano es muy malo para detectar el frame rate. Una pelicula de 24 fps es suficiente para engañar al ojo humano.
+![](images/celuloide.jpg){fig-align="center" .fragment}
 
+[Una película de 24 FPS es suficiente para engañar al ojo humano.]{.fragment}
+
+
+---
+
+## Moraleja de Parte 1
+
+* Ninguna representación en el computador es perfecta.
+* LLMs no son perfectos, pero no necesitamos que lo sean.
 
 ---
 
@@ -82,15 +180,37 @@ El computador parlanchín
 
 ---
 
-Depende...
-Si solo queremos transmitir texto (sin interpretar - semántica), basta con representar cada letra con una secuencia de bits, y almacenarla. Listo.
+## Representación textual
+
+Si solo queremos transcribir texto, basta con representar cada letra con una secuencia de bits, y almacenarla.
+
+::: columns
+::: {.column width="50%" .fragment .center}
+ASCII
+
+* 1 byte (8 bits): 128 carácteres posibles
+* 0 (48) ... 9 (57)
+* A (65) ... Z (90)
+* a (97) ... z (122) 
+* Problema: Faltan muchos carácteres: Ñ, ñ, á, é, í, ó, ú, u
+:::
+::: {.column width="50%" .fragment .center}
+UTF-8
+
+* 1 a 4 bytes (8 a 32 bits)
+* Mantiene ASCII sin cambios
+* Permite representar alfabetos latinos, griego, cirílico, copto, armenio, hebreo, árabe, siríaco, thaana, y n'ko, además de caracteres chinos, japoneses y coreanos. 
+* Incluye emojis 😁, simbolos ✅ y mil cosas más 🗿
+:::
+:::
 
 ---
 
-Si quieres poder interpretar el texto, necesitamos una mejor REPRESENTACIÓN.
-texto -> tokens -> embeddings
-(ejemplo)
+## Representación semántica
 
+Si quieres que el computador pueda interpretar el sentido de cada palabra, es necesario almacenar la palabra como un todo. 
+
+[Necesitamos una mejor REPRESENTACIÓN.]{.fragment}
 
 ---
 
@@ -115,12 +235,13 @@ Nota: Definiciones extraídas de wikipedia.
 
 ---
 
-¿LLM?
+## ¿LLM?
+
 LLM = Large Language Model = Grandes Modelos de Lenguaje
 
 ---
 
-## Diagrama técnico 
+## Diagrama técnico de un LLM
 
 Diagrama de funcionamiento de un LLM que se filtró de OpenAI:
 
@@ -130,41 +251,61 @@ Diagrama de funcionamiento de un LLM que se filtró de OpenAI:
 
 ---
 
-Predecir la próxima palabra a partir de las anteriores.
-Mostrar imagen de cómo va avanzando la creación de la respuesta, palabra por palabra.
+## Actividad 2.2
+
+* Actividad: Ir a [https://huggingface.co/spaces/alonsosilva/NextTokenPrediction](https://huggingface.co/spaces/alonsosilva/NextTokenPrediction)
+* Objetivo: Observar la lista de token que se muestran como posible continuación del texto.
+* Tiempo: 5 minutos
 
 ---
 
-Ojo: no es que el LLM "piense" o "sabe" lo que está haciendo. Es sólo una representación.
+## Aprendizajes de Actividad 2.1
 
----
+* El LLM no reflexiona sobre la próxima palabra. 
+* El LLM sugiere los tokens que estadísticamente son más probables.
+* Se predice token a token. No hay paralelismo, no se puede predecir el siguiente token mientras los anteriores no se han predicho. Es super secuencial.
+* El LLM no tiene memoria. Siempre empieza a predecir desde el mismo estado inicial.
 
-Ojo 2: es estadística aplicada! 
-
----
-
-Ojo 3: Se predice token a token. No hay paralelismo, no se puede predecir el siguiente token mientras los anteriores no se han predicho. Es super secuencial.
-
----
-
-OJo 4: El LLM no tiene memoria. Siempre empieza a predecir desde el mismo estado inicial.
-
----
-
+::: {.notes}
 Comparar con una multiplicación de matrices. La matriz no recuerda que ya hizo multiplicaciones antes.
+:::
 
 ---
 
-¿Cómo se entrena un LLM?
+## El negocio de los LLMs
 
----
-
-Corpus de texto y mucho dinero o muchas gpus.
-¿Que se obtiene? Muchas grandes matrices! (depende de la arquitectura) - dar 1 ejemplo.
-
----
+* Los LLMs hoy en día tienen billones de parámetros: 1,000,000,000,000
+* Cada parámetro se determina en un proceso de entrenamiento basado en enormes conjuntos de texto (esencialmente TODO el internet y libros escritos).
+* Entrenar una LLM requiere muchas horas de uso de tarjetas gráficas (GPUs).
 
 Esto significa que un LLM open source puede descargarse (son bits), y ejecutarse localmente - si tu hardware lo permite.
+
+---
+
+## El negocio de los LLMs
+
+No existe solo chatGPT (OpenAI): todos quieren un pedazo de la torta:
+
+::: columns
+::: {.column width="50%" .fragment .center}
+Los de pago:
+
+* GPT-4 (OpenAI)
+* Gemini (Google)
+* Claude (Anthropic)
+* ...
+:::
+::: {.column width="50%" .fragment .center}
+Los de código abierto:
+
+* Llama (Meta)
+* Qwen (Baidu)
+* DeepSeek (China)
+* ...
+:::
+:::
+
+Y están quienes no desarrollan pero entregan LLM como un servicio: Amazon (Bedrock), OpenRouter, etc.
 
 ---
 
@@ -196,21 +337,9 @@ Consumir una API de LLM
 
 ---
 
-
-## ¿API?
-::: columns
-::: {.column width="50%"}
-Imagen con una analogía de la API
-:::
-::: {.column width="50%" .fragment .center}
-
-:::
-:::
----
-
 ## Actividad 1
 
-* Actividad: Ir a [citt](citt)
+* Actividad: Ir a [https://cittripio.streamlit.app/](https://cittripio.streamlit.app/)
 * Objetivo: Lograr que el bot responda "con personalidad"
 * Tiempo: 5 minutos
 
@@ -225,7 +354,7 @@ Imagen con una analogía de la API
 
 ## Actividad 2
 
-* Actividad: Ir a [citt](citt)
+* Actividad: Ir a [https://cittripio.streamlit.app/v2](https://cittripio.streamlit.app/v2)
 * Objetivo: Hacer 2 preguntas:
   * ¿Qué animal da leche y dice mu? 
   * ¿Que come ese animal?
@@ -246,6 +375,7 @@ Imagen con una analogía de la API
 ¿Cómo solucionarían ustedes este problema?
 
 Respuesta: Muy simple: Pasemosle la historia de la conversación en cada prompt.
+
 - Opción 1: Pasarle todo el texto.
 - Opción 2: Pasarle un resumen de la conversación.
 
@@ -255,25 +385,27 @@ Respuesta: Muy simple: Pasemosle la historia de la conversación en cada prompt.
 
 ¿Qué es la temperatura?
 
-Rpa: Que tan aleatoria es la elección del siguiente token.
+Respuesta: 
+
+* Es un parámetro que controla que tan aleatoria es la elección del siguiente token.
+* Temperatura = 0: Muy determinista.
+* Temperatura = 1: Muy aleatorio.
 
 ---
 
 ## Actividad 3
 
-* Actividad: Ir a [citt](citt)
-* Objetivo: Hacer 2 preguntas:
-  * ¿Qué animal da leche y dice mu? 
-  * ¿Que come ese animal?
-* ¿El LLM tiene memoria?
+* Actividad: Ir a [https://cittripio.streamlit.app/v2](https://cittripio.streamlit.app/v2)
+* Objetivo 1: Lograr que cittripio le responda a Luke Skywalker que es su padre.
+* Objetivo 2: Cambiar la personalidad de cittripio por cualquier otro personaje (no necesariamente de Star Wars).
 * Tiempo: 5 minutos
 
 ---
 
 ## Aprendizajes de la Actividad 3
 
-* El LLM necesita todo el contexto e historia en el prompt.
-* Las APIs agregan muchas opciones para manejar todo esto convenientemente.
+* El LLM necesita tener como input todo el contexto e historia en el prompt.
+* Las APIs agregan muchas opciones para simplificar y manejar todo esto convenientemente.
 
 ---
 
@@ -282,19 +414,12 @@ Rpa: Que tan aleatoria es la elección del siguiente token.
 * LLMs no son magia: es tecnología.
 * Cualquiera puede comenzar a crear soluciones con LLMs.
 * Conocer como funcionan LLMs permite usarlos mejor.
-* Existen recursos gratuitos para aprender y jugar.
+* Existen muchos recursos gratuitos para aprender y jugar.
 
 ---
 
-## ¿Storytelling?
-::: columns
-::: {.column width="50%"}
-![](images/fire.jpeg){fig-align="center"}
-:::
-::: {.column width="50%" .fragment .center}
-&#32;<br><br><br><br>
-Lorem Ipsum
-:::
-:::
+## Preguntas
+
+QR de encuesta: https://forms.gle/???
 
 ---
