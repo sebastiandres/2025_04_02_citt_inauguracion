@@ -1,0 +1,279 @@
+---
+execute:
+  echo: true
+format:
+  revealjs:
+    width: 1245
+    height: 700
+    menu: false
+    controls: true
+    transition: fade
+    auto-stretch: false
+    embed-resources: false
+    toc: false
+    center: true
+    slide-number: false
+    preview-links: false
+    output-file: "taller"
+    theme:
+        - simple
+
+---
+
+##
+::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
+[¡Haz tu propio ChatGPT!]{style="font-size: 20px; margin: 0px;"} <br>
+[Taller de Python + IA para todos]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
+[Sebastian Flores, Francisco Alfaro, Valeska Canales]{style="font-size: 25px;"}
+:::
+
+::: {.notes}
+.
+:::
+
+---
+
+##
+
+Imagen de recortes de noticias sobre LLMs. Alarmista. Fin de civilizacion y de trabajos...
+
+---
+
+##
+
+Historia del Mago de Oz...
+Gran mago... detrás de la cortina hay tecnología.
+
+---
+
+## Parte 1
+
+La ilusión de la continuidad
+
+---
+
+El computador & la ilusión de la continuidad.
+bits, just bits. 
+Imagen: bits + context/conventions -> representación
+
+---
+
+todo es discretos: numeros, colores, gráficos, sonidos, etc etc.
+
+---
+
+Alta fidelidad no es continuidad. Pero es una muy buena aproximación.
+
+---
+
+No necesitamos la realidad, necesitamos una buena aproximación. Suficiente para engañar a los sentidos.
+
+Otro ejemplo: una película. Ojo humano es muy malo para detectar el frame rate. Una pelicula de 24 fps es suficiente para engañar al ojo humano.
+
+
+---
+
+## Parte 2
+
+El computador parlanchín
+
+---
+
+¿Cómo representar una palabra?
+
+---
+
+Depende...
+Si solo queremos transmitir texto (sin interpretar - semántica), basta con representar cada letra con una secuencia de bits, y almacenarla. Listo.
+
+---
+
+Si quieres poder interpretar el texto, necesitamos una mejor REPRESENTACIÓN.
+texto -> tokens -> embeddings
+(ejemplo)
+
+---
+
+¿LLM?
+LLM = Large Language Model = Grandes Modelos de Lenguaje
+
+---
+
+## Diagrama técnico 
+
+Diagrama de funcionamiento de un LLM que se filtró de OpenAI:
+
+[¡¡¡No difundir!!!]{.fragment}
+
+![](images/LLM_words.gif){fig-align="center" .fragment}
+
+---
+
+Predecir la próxima palabra a partir de las anteriores.
+Mostrar imagen de cómo va avanzando la creación de la respuesta, palabra por palabra.
+
+---
+
+Ojo: no es que el LLM "piense" o "sabe" lo que está haciendo. Es sólo una representación.
+
+---
+
+Ojo 2: es estadística aplicada! 
+
+---
+
+Ojo 3: Se predice token a token. No hay paralelismo, no se puede predecir el siguiente token mientras los anteriores no se han predicho. Es super secuencial.
+
+---
+
+OJo 4: El LLM no tiene memoria. Siempre empieza a predecir desde el mismo estado inicial.
+
+---
+
+Comparar con una multiplicación de matrices. La matriz no recuerda que ya hizo multiplicaciones antes.
+
+---
+
+¿Cómo se entrena un LLM?
+
+---
+
+Corpus de texto y mucho dinero o muchas gpus.
+¿Que se obtiene? Muchas grandes matrices! (depende de la arquitectura) - dar 1 ejemplo.
+
+---
+
+Esto significa que un LLM open source puede descargarse (son bits), y ejecutarse localmente - si tu hardware lo permite.
+
+---
+
+## Parte 3
+
+¡Hazlo tu mismo!
+
+---
+
+## ¿Cómo podemos emular chatGPT?
+
+Lo más importante es tener un LLM:
+
+::: columns
+::: {.column width="50%" .center}
+Ejecutar localmente LLM: 
+
+* Configuración compleja
+* Hardware costoso
+:::
+::: {.column width="50%" .fragment}
+Consumir una API de LLM  
+
+* Simple
+* Pagar lo que consumes
+* Multiples proveedores y alternativas
+:::
+:::
+
+---
+
+
+## ¿API?
+::: columns
+::: {.column width="50%"}
+Imagen con una analogía de la API
+:::
+::: {.column width="50%" .fragment .center}
+
+:::
+:::
+---
+
+## Actividad 1
+
+* Actividad: Ir a [citt](citt)
+* Objetivo: Lograr que el bot responda "con personalidad"
+* Tiempo: 5 minutos
+
+---
+
+## Aprendizajes de la Actividad 1
+
+* El LLM responde en función del prompt.
+* El prompt puede pedir cualquier cosa.
+  
+---
+
+## Actividad 2
+
+* Actividad: Ir a [citt](citt)
+* Objetivo: Hacer 2 preguntas:
+  * ¿Qué animal da leche y dice mu? 
+  * ¿Que come ese animal?
+* ¿El LLM tiene memoria?
+* Tiempo: 5 minutos
+
+--- 
+
+## Aprendizajes de la Actividad 2
+
+* Separar en contexto y pregunta permite imponer una "personalidad" o ciertas características.
+* El chatbot no tiene memoria.
+
+--- 
+
+## ¿Porqué chatGPT si tiene memoria? {.fragment}
+
+¿Cómo solucionarían ustedes este problema?
+
+Respuesta: Muy simple: Pasemosle la historia de la conversación en cada prompt.
+- Opción 1: Pasarle todo el texto.
+- Opción 2: Pasarle un resumen de la conversación.
+
+---
+
+##  ¿Temperatura?
+
+¿Qué es la temperatura?
+
+Rpa: Que tan aleatoria es la elección del siguiente token.
+
+---
+
+## Actividad 3
+
+* Actividad: Ir a [citt](citt)
+* Objetivo: Hacer 2 preguntas:
+  * ¿Qué animal da leche y dice mu? 
+  * ¿Que come ese animal?
+* ¿El LLM tiene memoria?
+* Tiempo: 5 minutos
+
+---
+
+## Aprendizajes de la Actividad 3
+
+* El LLM necesita todo el contexto e historia en el prompt.
+* Las APIs agregan muchas opciones para manejar todo esto convenientemente.
+
+---
+
+## Conclusión
+
+* LLMs no son magia: es tecnología.
+* Cualquiera puede comenzar a crear soluciones con LLMs.
+* Conocer como funcionan LLMs permite usarlos mejor.
+* Existen recursos gratuitos para aprender y jugar.
+
+---
+
+## ¿Storytelling?
+::: columns
+::: {.column width="50%"}
+![](images/fire.jpeg){fig-align="center"}
+:::
+::: {.column width="50%" .fragment .center}
+&#32;<br><br><br><br>
+Lorem Ipsum
+:::
+:::
+
+---

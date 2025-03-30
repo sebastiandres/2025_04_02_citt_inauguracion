@@ -1,0 +1,20 @@
+[theme]
+
+# css-6qob1r e1fqkh3o3
+# UCC Planning
+# Menú lateral: #ffffff (white)
+# Pagina: #f7f7f7 (gray)
+# letra: #0c0c0c (gray)
+# Fondo de la barra de navegación: #1a2d3e
+
+# Primary accent for interactive elements: color de texto y bordes interactivos
+primaryColor = '#07808D'
+
+# Background color for the main content area: color de fondo de la página (no de sidebar)
+backgroundColor = '#f7f7f7'
+
+# Background color for sidebar and most interactive widgets
+secondaryBackgroundColor = '#F0F2F6' #'#F8F9FA'
+
+# Text color for most text
+textColor = '#0c0c0c'
