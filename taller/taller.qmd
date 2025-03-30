@@ -45,9 +45,11 @@ format:
 
 ---
 
->>> Toda tecnología suficientemente avanzada parece magia.
+::: {.callout-tip title="Idea"}
+Toda tecnología suficientemente avanzada parece magia.
 
-Arthur C. Clark
+[**Arthur C. Clarke**]{style="text-align: right;"}
+:::
 
 ---
 
@@ -156,7 +158,7 @@ Alta fidelidad no es continuidad. [Pero puede ser suficiente...]{.fragment fragm
 
 No necesitamos la realidad, necesitamos una buena aproximación. Suficiente para engañar a los sentidos.
 
-![](images/celuloide.jpg){fig-align="center" .fragment}
+![](images/celuloide.jpg){width=50% fig-align="center" .fragment}
 
 [Una película de 24 FPS es suficiente para engañar al ojo humano.]{.fragment}
 
@@ -185,7 +187,7 @@ El computador parlanchín
 Si solo queremos transcribir texto, basta con representar cada letra con una secuencia de bits, y almacenarla.
 
 ::: columns
-::: {.column width="50%" .fragment .center}
+::: {.column style="font-size: 24px;" .fragment .center}
 ASCII
 
 * 1 byte (8 bits): 128 carácteres posibles
@@ -194,7 +196,7 @@ ASCII
 * a (97) ... z (122) 
 * Problema: Faltan muchos carácteres: Ñ, ñ, á, é, í, ó, ú, u
 :::
-::: {.column width="50%" .fragment .center}
+::: {.column style="font-size: 24px;" .fragment .center}
 UTF-8
 
 * 1 a 4 bytes (8 a 32 bits)
@@ -208,7 +210,9 @@ UTF-8
 
 ## Representación semántica
 
-Si quieres que el computador pueda interpretar el sentido de cada palabra, es necesario almacenar la palabra como un todo. 
+Semántica: relativo al **significado** de las palabras.
+
+Si quieres que el computador pueda interpretar el sentido de cada palabra, es necesario almacenar cada palabra como un todo. No puede descomponerse en sus letras.
 
 [Necesitamos una mejor REPRESENTACIÓN.]{.fragment}
 
@@ -247,7 +251,7 @@ Diagrama de funcionamiento de un LLM que se filtró de OpenAI:
 
 [¡¡¡No difundir!!!]{.fragment}
 
-![](images/LLM_words.gif){fig-align="center" .fragment}
+![](images/LLM_words.gif){fig-align="center" width=150% .fragment}
 
 ---
 
@@ -305,7 +309,7 @@ Los de código abierto:
 :::
 :::
 
-Y están quienes no desarrollan pero entregan LLM como un servicio: Amazon (Bedrock), OpenRouter, etc.
+[Y están quienes no desarrollan pero entregan LLM como un servicio: Amazon (Bedrock), OpenRouter, etc.]{.fragment}
 
 ---
 
