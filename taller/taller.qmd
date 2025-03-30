@@ -22,9 +22,9 @@ format:
 
 ##
 ::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
-[¡Haz tu propio ChatGPT!]{style="font-size: 20px; margin: 0px;"} <br>
-[Taller de Python + IA para todos]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
-[Sebastian Flores, Francisco Alfaro, Valeska Canales]{style="font-size: 25px;"}
+[Taller de Python + IA para todos]{style="font-size: 20px; margin: 0px;"} <br>
+[¡Haz tu propio ChatGPT!]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
+[Sebastián Flores, Francisco Alfaro, Valeska Canales]{style="font-size: 25px;"}
 :::
 
 ::: {.notes}
@@ -33,16 +33,15 @@ format:
 
 ---
 
-##
+## ¿Qué dicen los diarios de la IA?
 
-Imagen de recortes de noticias sobre LLMs. Alarmista. Fin de civilizacion y de trabajos...
+![](images/alarmismo.png){fig-align="center" .fragment}
 
 ---
 
-##
+## SI presten atención al hombre tras la cortina
 
-Historia del Mago de Oz...
-Gran mago... detrás de la cortina hay tecnología.
+{{< video videos/tras_la_cortina.mp4 >}}
 
 ---
 
@@ -91,6 +90,28 @@ Si solo queremos transmitir texto (sin interpretar - semántica), basta con repr
 Si quieres poder interpretar el texto, necesitamos una mejor REPRESENTACIÓN.
 texto -> tokens -> embeddings
 (ejemplo)
+
+
+---
+
+## Actividad 2.1
+
+* Actividad: Ir a [https://platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
+* Objetivo: Evaluar distintos textos, en distintos idiomas.
+  * Ejemplo 1: *La informática,​ también llamada computación, es el área de la ciencia que se encarga de estudiar la administración de métodos, técnicas y procesos con el fin de almacenar, procesar y transmitir información y datos en formato digital.*
+  * Ejemplo 2: *Computing is any goal-oriented activity requiring, benefiting from, or creating computing machinery. It includes the study and experimentation of algorithmic processes, and the development of both hardware and software. Computing has scientific, engineering, mathematical, technological, and social aspects.*
+* Tiempo: 5 minutos
+
+Nota: Definiciones extraídas de wikipedia.
+
+---
+
+## Aprendizajes de Actividad 2.1
+
+* Palabra != Token
+* Cada token tiene un identificador único
+* En inglés,  100 tokens ~= 75 palabras. 
+* 2 palabras pueden ser idénticas pero tener distinto token
 
 ---
 

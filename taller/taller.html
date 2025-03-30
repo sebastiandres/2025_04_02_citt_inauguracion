@@ -7,7 +7,9 @@
 <link href="taller_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="taller_files/libs/quarto-html/light-border.css" rel="stylesheet">
 <link href="taller_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="taller_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+<link href="taller_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="taller_files/libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="taller_files/libs/quarto-contrib/videojs/video-js.css" rel="stylesheet"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.4.554">
 
   <title>taller</title>
@@ -328,7 +330,7 @@
 <section id="section" class="slide level2 center">
 <h2></h2>
 <div style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;">
-<p><span style="font-size: 20px; margin: 0px;">¡Haz tu propio ChatGPT!</span> <br> <span style="font-size: 30px; font-weight: bold; margin: 0px">Taller de Python + IA para todos</span> <br> <span style="font-size: 25px;">Sebastian Flores, Francisco Alfaro, Valeska Canales</span></p>
+<p><span style="font-size: 20px; margin: 0px;">Taller de Python + IA para todos</span> <br> <span style="font-size: 30px; font-weight: bold; margin: 0px">¡Haz tu propio ChatGPT!</span> <br> <span style="font-size: 25px;">Sebastián Flores, Francisco Alfaro, Valeska Canales</span></p>
 </div>
 <aside class="notes">
 <p>.</p>
@@ -344,13 +346,17 @@
           display:block!important;
       }</style></aside>
 </section>
-<section id="section-1" class="slide level2 center">
-<h2></h2>
-<p>Imagen de recortes de noticias sobre LLMs. Alarmista. Fin de civilizacion y de trabajos…</p>
+<section id="qué-dicen-los-diarios-de-la-ia" class="slide level2 center">
+<h2>¿Qué dicen los diarios de la IA?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/alarmismo.png" class="fragment quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
 </section>
-<section id="section-2" class="slide level2 center">
-<h2></h2>
-<p>Historia del Mago de Oz… Gran mago… detrás de la cortina hay tecnología.</p>
+<section id="si-presten-atención-al-hombre-tras-la-cortina" class="slide level2 center">
+<h2>SI presten atención al hombre tras la cortina</h2>
+<video id="video_shortcode_videojs_video1" class="video-js vjs-default-skin vjs-fluid" controls="" preload="auto" data-setup="{}" title=""><source src="videos/tras_la_cortina.mp4"></video>
 </section>
 <section id="parte-1" class="slide level2 center">
 <h2>Parte 1</h2>
@@ -389,6 +395,28 @@
 
 <p>Si quieres poder interpretar el texto, necesitamos una mejor REPRESENTACIÓN. texto -&gt; tokens -&gt; embeddings (ejemplo)</p>
 </section>
+<section id="actividad-2.1" class="slide level2 center">
+<h2>Actividad 2.1</h2>
+<ul>
+<li>Actividad: Ir a <a href="https://platform.openai.com/tokenizer">https://platform.openai.com/tokenizer</a></li>
+<li>Objetivo: Evaluar distintos textos, en distintos idiomas.
+<ul>
+<li>Ejemplo 1: <em>La informática,​ también llamada computación, es el área de la ciencia que se encarga de estudiar la administración de métodos, técnicas y procesos con el fin de almacenar, procesar y transmitir información y datos en formato digital.</em></li>
+<li>Ejemplo 2: <em>Computing is any goal-oriented activity requiring, benefiting from, or creating computing machinery. It includes the study and experimentation of algorithmic processes, and the development of both hardware and software. Computing has scientific, engineering, mathematical, technological, and social aspects.</em></li>
+</ul></li>
+<li>Tiempo: 5 minutos</li>
+</ul>
+<p>Nota: Definiciones extraídas de wikipedia.</p>
+</section>
+<section id="aprendizajes-de-actividad-2.1" class="slide level2 center">
+<h2>Aprendizajes de Actividad 2.1</h2>
+<ul>
+<li>Palabra != Token</li>
+<li>Cada token tiene un identificador único</li>
+<li>En inglés, 100 tokens ~= 75 palabras.</li>
+<li>2 palabras pueden ser idénticas pero tener distinto token</li>
+</ul>
+</section>
 <section class="slide level2 center">
 
 <p>¿LLM? LLM = Large Language Model = Grandes Modelos de Lenguaje</p>
@@ -396,7 +424,7 @@
 <section id="diagrama-técnico" class="slide level2 center">
 <h2>Diagrama técnico</h2>
 <p>Diagrama de funcionamiento de un LLM que se filtró de OpenAI:</p>
-<p><span class="fragment">(favor no difundir)</span></p>
+<p><span class="fragment">¡¡¡No difundir!!!</span></p>
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/LLM_words.gif" class="fragment quarto-figure quarto-figure-center"></p>
@@ -955,6 +983,7 @@
       }
     });
     </script>
+    <script>videojs(video_shortcode_videojs_video1);</script>
     
 
 </body></html>

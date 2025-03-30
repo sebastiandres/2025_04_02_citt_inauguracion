@@ -2,4 +2,4 @@ render:
 	quarto render taller.qmd
 
 view:
-	open taller.html
+	open -a 'Google Chrome' taller.html
