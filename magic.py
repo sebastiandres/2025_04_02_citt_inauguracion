@@ -20,10 +20,12 @@ available_models_dict = {
     "Meta-Llama (free)": "meta-llama/llama-3.3-70b-instruct:free",
     "Mistral-Nemo (free)": "mistralai/mistral-nemo:free",
     "Gemini-Flash": "google/gemini-2.0-flash-001",
+    "OpenAI-GPT-4o": "openai/gpt-4o-mini",
+    "Phi-3-mini": "microsoft/phi-3-mini-128k-instruct",
 }
 
 # Default model is the first one in the available_models_dict
-DEFAULT_MODEL = list(available_models_dict.keys())[0]
+DEFAULT_MODEL = list(available_models_dict.keys())[-1]
 
 
 def get_api_key(use_streamlit=True, verbose=VERBOSE):
@@ -67,7 +69,7 @@ def get_answer(prompt="", messages=list(), model_name=DEFAULT_MODEL, api_key="",
         "Content-Type": "application/json",
     }
     # Append the prompt to the messages
-    if len(messages)>0:
+    if len(prompt)>0:
         messages = messages + [{"role": "user", "content": prompt}]
     # Pack the data
     data_dict = {
@@ -77,8 +79,11 @@ def get_answer(prompt="", messages=list(), model_name=DEFAULT_MODEL, api_key="",
     if temperature is not None:
         data_dict["temperature"] = temperature
     if verbose:
+        print("*"*100)
         print("Model:", model_name)
-        print("Data:", data_dict)
+        print("Data sent to API:")
+        for key in data_dict.keys():
+            print(f"{key}: {data_dict[key]}")
     raw_response = requests.post(url=url, headers=headers_dict, data=json.dumps(data_dict))
     # Interpret the response as json
     response_dict = raw_response.json()
