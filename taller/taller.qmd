@@ -9,7 +9,7 @@ format:
     controls: true
     transition: fade
     auto-stretch: false
-    embed-resources: true
+    embed-resources: false
     toc: false
     center: true
     slide-number: false
@@ -21,11 +21,28 @@ format:
 
 ---
 
+##
+
+```
+        - style/style_background.scss
+```
+
+---
+
 ## { .custom-slide }
 ::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
 [Taller de Python + IA para todos]{style="font-size: 20px; margin: 0px;"} <br>
 [¡Haz tu propio ChatGPT!]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
-[Sebastián Flores, Francisco Alfaro, Valeska Canales]{style="font-size: 25px;"}
+[Sebastián Flores, Francisco Alfaro, & Valeska Canales]{style="font-size: 25px;"}
+:::
+
+---
+
+## Programa del taller
+
+::: {.incremental}
+* Algunos conceptos teóricos: Tokens, LLMs, y APIs.
+* 5 actividades prácticas
 :::
 
 ---
@@ -34,28 +51,21 @@ format:
 
 ![](images/alarmismo.png){fig-align="center" .fragment}
 
+---
 
-::: {.notes}
-Estamos bombardeados por información contradictoria: que la IA salvará el mundo y que al mismo tiempo nos dejará sin trabajo.
+## [SI]{style="color: red;"} presten atención al hombre tras la cortina
+
+{{< video videos/tras_la_cortina.mp4 height="500px" >}}
+
+---
+
+::: {.callout-tip title="Recuerden:"}
+Toda tecnología suficientemente avanzada parece magia. *Arthur C. Clarke*
 :::
 
 ---
 
-## SI presten atención al hombre tras la cortina
-
-{{< video videos/tras_la_cortina.mp4 >}}
-
----
-
-::: {.callout-tip title="Idea"}
-Toda tecnología suficientemente avanzada parece magia.
-
-[**Arthur C. Clarke**]{style="text-align: right;"}
-:::
-
----
-
-## Parte 1
+## Parte 1 {.custom-section}
 
 La ilusión de la continuidad
 
@@ -167,20 +177,31 @@ No necesitamos la realidad, necesitamos una buena aproximación. Suficiente para
 
 ---
 
-## Moraleja de Parte 1
+## ¿Qué aprendimos?
 
+::: {.incremental}
 * Ninguna representación en el computador es perfecta.
-* LLMs no son perfectos, pero no necesitamos que lo sean.
+* LLMs no son perfectos, pero ya son suficientemente útiles.
+:::
 
 ---
 
-## Parte 2
+## Preguntas {.questions-slide}
+
+---
+
+## Parte 2 {.custom-section}
 
 El computador parlanchín
 
 ---
 
-¿Cómo representar una palabra?
+## ¿Cómo representar una palabra?  
+
+::: {.incremental}
+* Representación textual
+* Representación semántica
+:::
 
 ---
 
@@ -218,32 +239,36 @@ Si quieres que el computador pueda interpretar el sentido de cada palabra, es ne
 
 [Necesitamos una mejor REPRESENTACIÓN.]{.fragment}
 
+[La palabra se guarda entera o se descompone en sus partes representativas ([tokens]{style="color: red;"})]{.fragment}
+
 ---
 
 ## Actividad 2.1
 
-* Actividad: Ir a [https://platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
-* Objetivo: Evaluar distintos textos, en distintos idiomas.
-  * Ejemplo 1: *La informática,​ también llamada computación, es el área de la ciencia que se encarga de estudiar la administración de métodos, técnicas y procesos con el fin de almacenar, procesar y transmitir información y datos en formato digital.*
-  * Ejemplo 2: *Computing is any goal-oriented activity requiring, benefiting from, or creating computing machinery. It includes the study and experimentation of algorithmic processes, and the development of both hardware and software. Computing has scientific, engineering, mathematical, technological, and social aspects.*
-* Tiempo: 5 minutos
+* **Actividad**: Ir a [https://platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
+* **Objetivo**: Evaluar distintos textos, en distintos idiomas.
+  * Español: [*La informática,​ también llamada computación, es el área de la ciencia que se encarga de estudiar la administración de métodos, técnicas y procesos con el fin de almacenar, procesar y transmitir información y datos en formato digital.*]{style="font-size: 24px;"}
+  * Inglés: [*Computing is any goal-oriented activity requiring, benefiting from, or creating computing machinery. It includes the study and experimentation of algorithmic processes, and the development of both hardware and software. Computing has scientific, engineering, mathematical, technological, and social aspects.*]{style="font-size: 24px;"}
+* **Tiempo**: 5 minutos
 
-Nota: Definiciones extraídas de wikipedia.
+[Nota: Definiciones extraídas de wikipedia.]{style="font-size: 18px;"}
 
 ---
 
-## Aprendizajes de Actividad 2.1
+## Aprendizajes 
 
+::: {.incremental}
 * Palabra != Token
 * Cada token tiene un identificador único
 * En inglés,  100 tokens ~= 75 palabras. 
-* 2 palabras pueden ser idénticas pero tener distinto token
+* Si tienen la misma representación, tienen el mismo token (ejemplo: el papa y la papa)
+:::
 
 ---
 
 ## ¿LLM?
 
-LLM = Large Language Model = Grandes Modelos de Lenguaje
+[LLM]{style="color: red;"} = Large Language Model = Grandes Modelos de Lenguaje
 
 ---
 
@@ -251,26 +276,27 @@ LLM = Large Language Model = Grandes Modelos de Lenguaje
 
 Diagrama de funcionamiento de un LLM que se filtró de OpenAI:
 
-[¡¡¡No difundir!!!]{.fragment}
+[**¡¡¡No difundir!!!**]{style="color: red;" .fragment}
 
-![](images/LLM_words.gif){fig-align="center" width=150% .fragment}
+![](images/LLM_words.gif){fig-align="center" height=500px .fragment}
 
 ---
 
 ## Actividad 2.2
 
-* Actividad: Ir a [https://huggingface.co/spaces/alonsosilva/NextTokenPrediction](https://huggingface.co/spaces/alonsosilva/NextTokenPrediction)
-* Objetivo: Observar la lista de token que se muestran como posible continuación del texto.
-* Tiempo: 5 minutos
+* **Actividad**: Ir a [https://huggingface.co/spaces/alonsosilva/NextTokenPrediction](https://huggingface.co/spaces/alonsosilva/NextTokenPrediction)
+* **Objetivo**: Observar la lista de token que se muestran como posible continuación del texto.
+* **Tiempo**: 5 minutos
 
 ---
 
-## Aprendizajes de Actividad 2.1
+## Aprendizajes 
 
-* El LLM no reflexiona sobre la próxima palabra. 
-* El LLM sugiere los tokens que estadísticamente son más probables.
-* Se predice token a token. No hay paralelismo, no se puede predecir el siguiente token mientras los anteriores no se han predicho. Es super secuencial.
+::: {.incremental}
+* El LLM no reflexiona sobre la próxima palabra: sugiere los tokens estadísticamente más probables.
+* Se predice token a token: es secuencial.
 * El LLM no tiene memoria. Siempre empieza a predecir desde el mismo estado inicial.
+:::
 
 ::: {.notes}
 Comparar con una multiplicación de matrices. La matriz no recuerda que ya hizo multiplicaciones antes.
@@ -293,16 +319,16 @@ Esto significa que un LLM open source puede descargarse (son bits), y ejecutarse
 No existe solo chatGPT (OpenAI): todos quieren un pedazo de la torta:
 
 ::: columns
-::: {.column width="50%" .fragment .center}
-Los de pago:
+::: {.column width="50%" .incremental .center}
+**De pago:**
 
 * GPT-4 (OpenAI)
 * Gemini (Google)
 * Claude (Anthropic)
 * ...
 :::
-::: {.column width="50%" .fragment .center}
-Los de código abierto:
+::: {.column width="50%" .incremental .center}
+**Código abierto:**
 
 * Llama (Meta)
 * Qwen (Baidu)
@@ -315,7 +341,11 @@ Los de código abierto:
 
 ---
 
-## Parte 3
+## Preguntas {.questions-slide}
+
+---
+
+## Parte 3 {.custom-section}
 
 ¡Hazlo tu mismo!
 
@@ -326,53 +356,59 @@ Los de código abierto:
 Lo más importante es tener un LLM:
 
 ::: columns
-::: {.column width="50%" .center}
+::: {.column width="50%" .center .fragment}
 Ejecutar localmente LLM: 
-
+::: {style="font-size: 24px;"}
 * Configuración compleja
 * Hardware costoso
+* Hay que realizar todo el proceso: conversión de texto a tokens, predecir token a token, y conversión de tokens a texto.
+:::
 :::
 ::: {.column width="50%" .fragment}
 Consumir una API de LLM  
-
-* Simple
+::: {style="font-size: 24px;"}
+* Simple: entrega un texto, recibe un texto.
 * Pagar lo que consumes
-* Multiples proveedores y alternativas
+* Múltiples proveedores y alternativas 
+:::
 :::
 :::
 
 ---
 
-## Actividad 1
+## Actividad 3.1
 
-* Actividad: Ir a [https://cittripio.streamlit.app/](https://cittripio.streamlit.app/)
-* Objetivo: Lograr que el bot responda "con personalidad"
-* Tiempo: 5 minutos
+* **Actividad**: Ir a [https://cittripio.streamlit.app/v1](https://cittripio.streamlit.app/v1)
+* **Objetivo**: Lograr que el bot responda "con personalidad"
+* **Tiempo**: 5 minutos
 
 ---
 
-## Aprendizajes de la Actividad 1
+## Aprendizajes 
 
+::: {.incremental}
 * El LLM responde en función del prompt.
 * El prompt puede pedir cualquier cosa.
-  
+:::
+
 ---
 
-## Actividad 2
+## Actividad 3.2
 
-* Actividad: Ir a [https://cittripio.streamlit.app/v2](https://cittripio.streamlit.app/v2)
-* Objetivo: Hacer 2 preguntas:
-  * ¿Qué animal da leche y dice mu? 
-  * ¿Que come ese animal?
-* ¿El LLM tiene memoria?
-* Tiempo: 5 minutos
+* **Actividad**: Ir a [https://cittripio.streamlit.app/v2](https://cittripio.streamlit.app/v2)
+* **Objetivo**: 
+  * O1: Hacer 2 preguntas relacionadas.
+  * O2: Cambiar la personalidad del bot.
+* **Tiempo**: 5 minutos
 
 --- 
 
-## Aprendizajes de la Actividad 2
+## Aprendizajes 
 
+::: {.incremental}
 * Separar en contexto y pregunta permite imponer una "personalidad" o ciertas características.
-* El chatbot no tiene memoria.
+* Un LLM no tiene memoria.
+:::
 
 --- 
 
@@ -380,52 +416,67 @@ Consumir una API de LLM
 
 ¿Cómo solucionarían ustedes este problema?
 
-Respuesta: Muy simple: Pasemosle la historia de la conversación en cada prompt.
-
+::: {.incremental}
+Pasémosle la historia de la conversación en cada prompt.
 - Opción 1: Pasarle todo el texto.
 - Opción 2: Pasarle un resumen de la conversación.
+:::
 
 ---
 
 ##  ¿Temperatura?
 
-¿Qué es la temperatura?
+¿Qué es la temperatura en un LLM?
 
-Respuesta: 
-
+::: {.incremental}
 * Es un parámetro que controla que tan aleatoria es la elección del siguiente token.
 * Temperatura = 0: Muy determinista.
 * Temperatura = 1: Muy aleatorio.
+:::
 
 ---
 
-## Actividad 3
+## Actividad 3.3
 
-* Actividad: Ir a [https://cittripio.streamlit.app/v2](https://cittripio.streamlit.app/v2)
-* Objetivo 1: Lograr que cittripio le responda a Luke Skywalker que es su padre.
-* Objetivo 2: Cambiar la personalidad de cittripio por cualquier otro personaje (no necesariamente de Star Wars).
-* Tiempo: 5 minutos
+* **Actividad**: Ir a [https://cittripio.streamlit.app/v3](https://cittripio.streamlit.app/v3)
+* **Objetivo**: 
+  * O1: Lograr que cittripio le responda a Luke Skywalker que es su padre.
+  * O2: Cambiar la personalidad de cittripio por cualquier otro personaje (no necesariamente de Star Wars).
+* **Tiempo**: 5 minutos
 
 ---
 
-## Aprendizajes de la Actividad 3
+## Aprendizajes 
 
+::: {.incremental}
 * El LLM necesita tener como input todo el contexto e historia en el prompt.
 * Las APIs agregan muchas opciones para simplificar y manejar todo esto convenientemente.
+:::
 
 ---
 
-## Conclusión
+## Conclusión {.custom-title}
 
+::: {.incremental}
 * LLMs no son magia: es tecnología.
 * Cualquiera puede comenzar a crear soluciones con LLMs.
 * Conocer como funcionan LLMs permite usarlos mejor.
 * Existen muchos recursos gratuitos para aprender y jugar.
+:::
 
 ---
 
-## Preguntas
+## Preguntas {.questions-slide}
 
-QR de encuesta: https://forms.gle/???
+QR de encuesta: 
+
+![](images/qr_encuesta.png){fig-align="center" width=50%}
+[https://forms.fillout.com/t/jeLVGSTdDCus](https://forms.fillout.com/t/jeLVGSTdDCus)
 
 ---
+
+## Gracias
+
+
+
+
