@@ -1,9 +1,10 @@
 import streamlit as st
 
-from magic import get_answer
+from magic import get_answer, hide_sidebar
 
 # ChatCITT v1
 st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
+hide_sidebar()
 st.title("CITTRIPIO v1")
 input_text = st.text_area("Pregunta:", value="¿Qué animal da leche y dice miau?", placeholder="Escribe tu pregunta")
 button_disabled = len(input_text)==0

@@ -1,9 +1,10 @@
 import streamlit as st
 
-from magic import get_answer, available_models_dict
+from magic import get_answer, available_models_dict, hide_sidebar
 
 # ChatCITT v2
 st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
+hide_sidebar()
 st.title("CITTRIPIO v2")
 model_name = st.selectbox("Modelo LLM", list(available_models_dict.keys()))
 context_str = st.text_area("Contexto:", value="Eres un asistente de IA que responde como pirata en español, aunque el usuario escriba en inglés.")

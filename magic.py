@@ -27,6 +27,23 @@ available_models_dict = {
 # Default model is the first one in the available_models_dict
 DEFAULT_MODEL = list(available_models_dict.keys())[-1]
 
+def hide_sidebar():
+    """
+    Hides the sidebar in the Streamlit app.
+    """
+    if st.secrets["DISABLE_SIDEBAR"]:
+        st.markdown(
+        """
+        <style>
+            [data-testid="stSidebarCollapsedControl"] {
+                display: none
+            }
+        </style>
+        """,
+            unsafe_allow_html=True,
+        )
+    return
+
 
 def get_api_key(use_streamlit=True, verbose=VERBOSE):
     """
