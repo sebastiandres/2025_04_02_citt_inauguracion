@@ -17,18 +17,15 @@ format:
     output-file: "taller"
     theme:
         - simple
+        - style/style_background.scss
 
 ---
 
-##
+## { .custom-slide }
 ::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
 [Taller de Python + IA para todos]{style="font-size: 20px; margin: 0px;"} <br>
 [¡Haz tu propio ChatGPT!]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
 [Sebastián Flores, Francisco Alfaro, Valeska Canales]{style="font-size: 25px;"}
-:::
-
-::: {.notes}
-.
 :::
 
 ---
@@ -36,6 +33,11 @@ format:
 ## ¿Qué dicen los diarios de la IA?
 
 ![](images/alarmismo.png){fig-align="center" .fragment}
+
+
+::: {.notes}
+Estamos bombardeados por información contradictoria: que la IA salvará el mundo y que al mismo tiempo nos dejará sin trabajo.
+:::
 
 ---
 
