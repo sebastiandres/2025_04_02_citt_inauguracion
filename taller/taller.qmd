@@ -6,10 +6,9 @@ format:
     width: 1245
     height: 700
     menu: false
-    controls: true
     transition: fade
     auto-stretch: false
-    embed-resources: false
+    embed-resources: true
     toc: false
     center: true
     slide-number: false
@@ -21,15 +20,7 @@ format:
 
 ---
 
-##
-
-```
-        - style/style_background.scss
-```
-
----
-
-## { .custom-slide }
+## { .custom-title }
 ::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
 [Taller de Python + IA para todos]{style="font-size: 20px; margin: 0px;"} <br>
 [¡Haz tu propio ChatGPT!]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
@@ -41,7 +32,7 @@ format:
 ## Programa del taller
 
 ::: {.incremental}
-* Algunos conceptos teóricos: Tokens, LLMs, y APIs.
+* Algunos conceptos: tokens, LLMs, y APIs.
 * 5 actividades prácticas
 :::
 
@@ -55,7 +46,7 @@ format:
 
 ## [SI]{style="color: red;"} presten atención al hombre tras la cortina
 
-{{< video videos/tras_la_cortina.mp4 height="500px" >}}
+{{< video videos/tras_la_cortina.mp4?raw=true height="500px" >}}
 
 ---
 
@@ -134,19 +125,19 @@ No existe ni el infinito ni lo continuo.]{.fragment}
 
 Alta fidelidad no es continuidad.
 
-![](code/derivada_5.png){fig-align="center"}
+![](code/derivada_05.png){fig-align="center"}
 
 ---
 
 Alta fidelidad no es continuidad.
 
-![](code/derivada_7.png){fig-align="center"}
+![](code/derivada_07.png){fig-align="center"}
 
 ---
 
 Alta fidelidad no es continuidad.
 
-![](code/derivada_9.png){fig-align="center"}
+![](code/derivada_09.png){fig-align="center"}
 
 ---
 
@@ -168,12 +159,13 @@ Alta fidelidad no es continuidad. [Pero puede ser suficiente...]{.fragment fragm
 
 ---
 
-No necesitamos la realidad, necesitamos una buena aproximación. Suficiente para engañar a los sentidos.
+No necesitamos la realidad, necesitamos una buena aproximación.
 
 ![](images/celuloide.jpg){width=50% fig-align="center" .fragment}
 
 [Una película de 24 FPS es suficiente para engañar al ojo humano.]{.fragment}
 
+[Necesitamos aproximaciones suficiente para engañar a los sentidos.]{.fragment}
 
 ---
 
@@ -217,7 +209,7 @@ ASCII
 * 0 (48) ... 9 (57)
 * A (65) ... Z (90)
 * a (97) ... z (122) 
-* Problema: Faltan muchos carácteres: Ñ, ñ, á, é, í, ó, ú, u
+* Problema: Faltan muchos carácteres: Ññáéíóúü
 :::
 ::: {.column style="font-size: 24px;" .fragment .center}
 UTF-8
@@ -243,9 +235,15 @@ Si quieres que el computador pueda interpretar el sentido de cada palabra, es ne
 
 ---
 
+## Analogía
+
+Lenguaje de señas: permite representar palabras textuales (letra a letra) y completas.
+
+---
+
 ## Actividad 2.1
 
-* **Actividad**: Ir a [https://platform.openai.com/tokenizer](https://platform.openai.com/tokenizer)
+* **Actividad**: Ir a [https://platform.openai.com/tokenizer](https://platform.openai.com/tokenizer){target="_blank"}
 * **Objetivo**: Evaluar distintos textos, en distintos idiomas.
   * Español: [*La informática,​ también llamada computación, es el área de la ciencia que se encarga de estudiar la administración de métodos, técnicas y procesos con el fin de almacenar, procesar y transmitir información y datos en formato digital.*]{style="font-size: 24px;"}
   * Inglés: [*Computing is any goal-oriented activity requiring, benefiting from, or creating computing machinery. It includes the study and experimentation of algorithmic processes, and the development of both hardware and software. Computing has scientific, engineering, mathematical, technological, and social aspects.*]{style="font-size: 24px;"}
@@ -284,7 +282,7 @@ Diagrama de funcionamiento de un LLM que se filtró de OpenAI:
 
 ## Actividad 2.2
 
-* **Actividad**: Ir a [https://huggingface.co/spaces/alonsosilva/NextTokenPrediction](https://huggingface.co/spaces/alonsosilva/NextTokenPrediction)
+* **Actividad**: Ir a [https://huggingface.co/spaces/alonsosilva/NextTokenPrediction](https://huggingface.co/spaces/alonsosilva/NextTokenPrediction){target="_blank"}
 * **Objetivo**: Observar la lista de token que se muestran como posible continuación del texto.
 * **Tiempo**: 5 minutos
 
@@ -304,13 +302,14 @@ Comparar con una multiplicación de matrices. La matriz no recuerda que ya hizo 
 
 ---
 
-## El negocio de los LLMs
+## El negocio de los LLMs 
 
-* Los LLMs hoy en día tienen billones de parámetros: 1,000,000,000,000
+::: {.incremental}
+* Los LLMs hoy en día tienen cientos de miles de millones de parámetros: 100,000,000,000.
 * Cada parámetro se determina en un proceso de entrenamiento basado en enormes conjuntos de texto (esencialmente TODO el internet y libros escritos).
 * Entrenar una LLM requiere muchas horas de uso de tarjetas gráficas (GPUs).
-
-Esto significa que un LLM open source puede descargarse (son bits), y ejecutarse localmente - si tu hardware lo permite.
+* Un LLM open source puede descargarse (son bits), y ejecutarse localmente - si tu hardware lo permite.
+:::
 
 ---
 
@@ -359,7 +358,7 @@ Lo más importante es tener un LLM:
 ::: {.column width="50%" .center .fragment}
 Ejecutar localmente LLM: 
 
-::: {style="font-size: 24px;"}
+::: {style="font-size: 30px;"}
 * Configuración compleja
 * Hardware costoso
 * Hay que realizar todo el proceso: conversión de texto a tokens, predecir token a token, y conversión de tokens a texto.
@@ -370,20 +369,17 @@ Ejecutar localmente LLM:
 ::: {.column width="50%" .fragment}
 Consumir una API de LLM  
 
-::: {style="font-size: 24px;"}
+::: {style="font-size: 30px;"}
 * Simple: entrega un texto, recibe un texto.
 * Pagar lo que consumes
 * Múltiples proveedores y alternativas 
-:::
-
-:::
 :::
 
 ---
 
 ## Actividad 3.1
 
-* **Actividad**: Ir a [https://cittripio.streamlit.app/v1](https://cittripio.streamlit.app/v1)
+* **Actividad**: Ir a [https://cittripio.streamlit.app/v1](https://cittripio.streamlit.app/v1){target="_blank"}
 * **Objetivo**: Lograr que el bot responda "con personalidad"
 * **Tiempo**: 5 minutos
 
@@ -394,13 +390,14 @@ Consumir una API de LLM
 ::: {.incremental}
 * El LLM responde en función del prompt.
 * El prompt puede pedir cualquier cosa.
+* Prompts cortos entregan resultados muy variables.
 :::
 
 ---
 
 ## Actividad 3.2
 
-* **Actividad**: Ir a [https://cittripio.streamlit.app/v2](https://cittripio.streamlit.app/v2)
+* **Actividad**: Ir a [https://cittripio.streamlit.app/vdos](https://cittripio.streamlit.app/vdos){target="_blank"}
 * **Objetivo**: 
   * O1: Hacer 2 preguntas relacionadas.
   * O2: Cambiar la personalidad del bot.
@@ -444,7 +441,7 @@ Pasémosle la historia de la conversación en cada prompt.
 
 ## Actividad 3.3
 
-* **Actividad**: Ir a [https://cittripio.streamlit.app/v3](https://cittripio.streamlit.app/v3)
+* **Actividad**: Ir a [https://cittripio.streamlit.app/vf](https://cittripio.streamlit.app/vf){target="_blank"}
 * **Objetivo**: 
   * O1: Lograr que cittripio le responda a Luke Skywalker que es su padre.
   * O2: Cambiar la personalidad de cittripio por cualquier otro personaje (no necesariamente de Star Wars).
@@ -461,7 +458,7 @@ Pasémosle la historia de la conversación en cada prompt.
 
 ---
 
-## Conclusión {.custom-title}
+## Conclusión {.custom-slide}
 
 ::: {.incremental}
 * LLMs no son magia: es tecnología.
@@ -472,16 +469,24 @@ Pasémosle la historia de la conversación en cada prompt.
 
 ---
 
-## Preguntas {.questions-slide}
+## Preguntas & Retroalimentación {.custom-slide}
 
-
-![](images/qr_encuesta.png){fig-align="center" width=30%}
-[https://forms.fillout.com/t/jeLVGSTdDCus](https://forms.fillout.com/t/jeLVGSTdDCus)
+::: {columns}
+::: {.column width="10%"}
+:::
+::: {.column width="50%"}
+![](images/qr_encuesta.png){fig-align="center" width=60%}
+[https://forms.fillout.com/t/jeLVGSTdDCus](https://forms.fillout.com/t/jeLVGSTdDCus){style="font-size: 24px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
+:::
+:::
 
 ---
 
-## Gracias
-
-
+## { .custom-title }
+::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
+[Taller de Python + IA para todos]{style="font-size: 20px; margin: 0px;"} <br>
+[¡Haz tu propio ChatGPT!]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
+[Sebastián Flores, Francisco Alfaro, & Valeska Canales]{style="font-size: 25px;"}
+:::
 
 

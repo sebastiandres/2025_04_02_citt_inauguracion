@@ -31,6 +31,7 @@ def save_derivative_plot(N):
     yl = y[n-1]
     yc = y[n]
     yr = y[n+1]
+    delta = xc - xl
     # Compute the derivative
     m = (yr - yl) / (xr - xl)
 
@@ -40,14 +41,17 @@ def save_derivative_plot(N):
     ax.plot(xline, yline, color='red', )
 
     # Annotate the plot
-    ax.text(0.5, 0.5, f'$f\'(0)={m:.2f}$', transform=ax.transAxes, fontsize=14, ha='right', va='top')
+    mkd_1 = '$\\frac{d f(x)}{dx}{|}_{x=0} \\approx \\frac{f(\\Delta x)- f(-\\Delta x)}{2 \\Delta x}$'
+    mkd_2 = f'$ = {m:.2f}$'
+    mkd_eval = mkd_1 + mkd_2
+    ax.text(0.5, 0.5, mkd_eval, transform=ax.transAxes, fontsize=14, ha='right', va='top')
 
     ax.set_xlabel('$x$')
     ax.set_ylabel('$e^x$')
-    ax.set_title(f'Cálculo numérico de la derivada de $e^x$ en $x={xc:.2f}$ usando $\Delta x={xr-xl:.2f}$')
+    ax.set_title(f'Cálculo numérico de la derivada de $e^x$ en $x={xc:.2f}$ usando $\Delta x={delta:.2f}$')
     ax.set_xlim(-2, 2)
     ax.set_ylim(-1, 7)
-    fig.savefig(f'derivada_{N}.png', dpi=300)
+    fig.savefig(f'derivada_{N:02d}.png', dpi=300)
     #plt.show()
 
 save_derivative_plot(5)
