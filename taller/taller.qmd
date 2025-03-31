@@ -358,19 +358,24 @@ Lo más importante es tener un LLM:
 ::: columns
 ::: {.column width="50%" .center .fragment}
 Ejecutar localmente LLM: 
+
 ::: {style="font-size: 24px;"}
 * Configuración compleja
 * Hardware costoso
 * Hay que realizar todo el proceso: conversión de texto a tokens, predecir token a token, y conversión de tokens a texto.
 :::
+
 :::
+
 ::: {.column width="50%" .fragment}
 Consumir una API de LLM  
+
 ::: {style="font-size: 24px;"}
 * Simple: entrega un texto, recibe un texto.
 * Pagar lo que consumes
 * Múltiples proveedores y alternativas 
 :::
+
 :::
 :::
 
@@ -416,8 +421,9 @@ Consumir una API de LLM
 
 ¿Cómo solucionarían ustedes este problema?
 
-::: {.incremental}
+::: {.fragment .incremental}
 Pasémosle la historia de la conversación en cada prompt.
+
 - Opción 1: Pasarle todo el texto.
 - Opción 2: Pasarle un resumen de la conversación.
 :::
@@ -468,9 +474,8 @@ Pasémosle la historia de la conversación en cada prompt.
 
 ## Preguntas {.questions-slide}
 
-QR de encuesta: 
 
-![](images/qr_encuesta.png){fig-align="center" width=50%}
+![](images/qr_encuesta.png){fig-align="center" width=30%}
 [https://forms.fillout.com/t/jeLVGSTdDCus](https://forms.fillout.com/t/jeLVGSTdDCus)
 
 ---
