@@ -9,7 +9,7 @@ format:
     controls: true
     transition: fade
     auto-stretch: false
-    embed-resources: true
+    embed-resources: false
     toc: false
     center: true
     slide-number: false
@@ -22,44 +22,22 @@ filters:
   - pyodide
 ---
 
-## Use the arrows to navigate the presentation.
-
---- 
-
 ## { .custom-title }
 
 &#32; 
 
 ---
 
-## Interacción Micrófono
-
-```{pyodide-python}
-import ipywidgets as widgets
-slider = widgets.IntSlider()
-display(slider)
-print(slider.value)
-```
-
----
-
-
 ## { .custom-title }
 ::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
-[Avoiding "Deaths by PowerPoint"]{style="font-size: 20px; margin: 0px;"} <br>
-[Data Storytelling and Python to the rescue]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
-[Sebastián Flores, PyCon US 2024, May 18th]{style="font-size: 25px;"}
-:::
-
-::: {.notes}
-Welcome to my talk: Avoiding deaths by powerpoint - Data Storytelling and Python to the rescue.
-
-Just to be fair, deaths by powerpoint are not caused by the software. It's the speaker that lacks data storytelling tools and skills to make it more engaging! 
+[Del experimento al conocimiento]{style="font-size: 20px; margin: 0px;"} <br>
+[Usando Python para explorar nuevas ideas]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
+[Sebastián Flores, 02 abril 2025]{style="font-size: 25px;"}
 :::
 
 ---
 
-## About me
+## ¿Quién soy?
 ::: columns
 ::: {.column width="40%"}
 ![](images/seba_avatar_gmail.png){fig-align="center"}
@@ -68,78 +46,320 @@ Just to be fair, deaths by powerpoint are not caused by the software. It's the s
 &#32;<br>
 
 * Sebastián Flores aka sebastiandres
-* Member of Python Chile
-* Collaborator to Streamlit and Vizzu
-* Chief Data Officer at uPlanner
+* Python Chile & IA Devs
+* Streamlit Creator
+* Innnovation Lead @ uPlanner
 :::
-:::
-
-::: {.notes}
-My name is Sebastian Flores, you can find me as sebastiandres on most sites - wink wink you can follow me on github, twitter and linkedin. 
-I’m part of the Python Chile team, organizing the PyCon Chile and PyDay Chile events.
-I also collaborate with the libraries Streamlit and Vizzu.
-My real job is CDO at uPlanner.
 :::
 
 ---
 
-## { .custom-section }
-[Data Storytelling]{style="font-size: 1em"}
+## 3 historias personales
 
-[Why Data Storytelling?]{style="font-size: 1.5em"}
+---
+
+## Historia #1 
+
+![](images/rubik.png){fig-align="center" height="600px"}
 
 ::: {.notes}
-OK, so, why data storytelling?
+Me habia rendido de aprender a resolver el cubo de rubik. Lo intenté yo mismo, a los 14 años, y no pude resolverlo. Pensé que era una habilidad que simplemente no tenía. 
+Por casualidad leí un artículo en el diario.
+
+Moraleja:
+No puedes aprender lo que no crees que puedas aprender.
+Las creencias limitantes son poderosas.
+
+Visto de otra manera: Efecto ratatuille. 
+Cualquiera puede llegar a ser un gran Chef. >> Un gran chef puede venir de cualquier parte. >> Hasta una rata puede programar si se lo propone.
 :::
 
 ---
 
-## ¿Storytelling?
+::: columns
+::: {.column width="70%"}
+::: {.callout-warning title="Aprendizaje #1: Profesía autocumplida"}
+Sólo puedes aprender lo que **crees** que puedas aprender.
+
+**Es difícil** aprender lo que **no crees** que puedes aprender.
+:::
+:::
+::: {.column width="25%"}
+![](images/rata2.jpeg){fig-align="center" height="200px"}
+:::
+:::
+
+---
+
+## Historia #2
+
+![](images/arnold.png){fig-align="center" height="600px"}
+
+::: {.notes}
+¿Quién acá conoce a Arnold Schwarzenegger?
+Arnold nació en Austria, y llegó a EEUU con 50 dolares en el bolsillo.
+Llegó a ser Mister Olimpia 2 veces. Protagonista de las peliculas de acción más icónicas de los 80. Governador de California. 
+Nunca lo pesqué mucho porque pensaba que era un cabeza de músculo.
+Pero una vez escuche un podcast donde le preguntaron:
+¿Eres un self made man? 
+Me esperaba la respuesta típica: claro que si, todo es esfuerzo, hay que levantarse a las 5 am, triturar a tus oponentes, etc etc.
+No. Dijo que nadie era nada sin ayuda.
+Que el había recibido ayuda, consejo, y soporte en cada paso.
+Desde los spotters en el gym, etc etc. 
+Nadie llega lejos solo.
+:::
+
+---
+
+::: columns
+::: {.column width="25%"}
+![](images/apes.jpeg){fig-align="center" height="200px"}
+:::
+::: {.column width="70%"}
+::: {.callout-warning title="Aprendizaje #2: Comunidad"}
+Para ir rápido, viaja solo.
+
+Para ir lejos, viaja en grupo.
+:::
+:::
+:::
+
+## Historia #3
+
+![](images/cake.png){fig-align="center" height="600px"}
+
+::: {.notes}
+En 1950, en USA aparecieron los "cake in a box" "instant cake" (imagen). La premisa: agregar agua, revolver y hornear. 
+A pesar del respaldo de la marca Betty Crocker, de que eran a prueba de errores, de que se ahorraba mucho tiempo, no funcionaron.
+Estudios mostraron que las cocineras (si, sorry por el anacronismo) se sentían culpables. 
+¿La solución? Hicieron la receta menos conveniente, y ahora requería agregar agua y huevos, revolver y hornear.
+- Ownership.
+- No queremos que sea demasiado facil. Queremos ponerle esfuerzo.
+Fuente: https://www.psychologytoday.com/us/blog/inside-the-box/201401/creativity-lesson-betty-crocker
+:::
+
+---
+
+::: columns
+::: {.column width="70%"}
+::: {.callout-warning title="Aprendizaje #3: Efecto IKEA"}
+Queremos poder estar orgullosos de nuestro trabajo. 
+Queremos sentir que lo hicimos con nuestro esfuerzo.
+Queremos que no sea **trivial**.
+:::
+:::
+::: {.column width="25%"}
+![](images/karatekid.jpg){fig-align="center" height="200px"}
+:::
+:::
+
+---
+
+## ¿Y Python? 
+
+::: {.incremental}
+1. Python es un lenguaje simple, **cualquiera puede aprenderlo**.
+2. Python tiene una **gran comunidad** y una enorme cantidad de recursos.
+3. Python entrega un gran **balance** entre "simple" y "poderoso".
+4. Nadie conoce todo Python: todos tenemos algo por aprender.
+:::
+
+---
+
+## 3 consejos para aprender con Python
+
+---
+
+## Consejo #1: Economía de la atención
+
 ::: columns
 ::: {.column width="50%"}
-![](images/fire.jpeg){fig-align="center"}
+![](images/attention.png){fig-align="center" height="600px"}
 :::
-::: {.column width="50%" .fragment .center}
-&#32;<br><br><br><br>
-Stories are 
-
-the first human technology
+::: {.column width="50%" .incremental}
+* **Diseña** como inviertes tu tiempo.
+* **Atrévete** a ser impopular.
+* Otros pueden enseñarte, pero **sólo tú** puedes aprender.
+* Si el problema fuera **únicamente** el conocimiento, todos tendríamos six-pack y seríamos millonarios.
 :::
-:::
-
-:::{.notes}
-People have been telling stories since the begining, because it's just the way our brains work. 
-[click]
-It's a "built-in technology" because it allows for knowledge transmission. 
-It allows collective learning and cooperation at small and large scale.
-
-Stories are not a random collection of facts. There's a very specific order: start, conflict, conflict resolution, ending. 
-That's the pattern that the brain craves, because it can learn from it. That's why we consume so much stories in any form: books, comics, tv-series, movies, etcetera.
-So, what do you do when you know how something works? You hack it, of course!
 :::
 
 ---
 
-## Interacción
+## Aprendizajes #1
+
+::: {.incremental}
+* Usa las redes a tu favor: sigue a expertos, pregunta, comparte, 
+  * [www.pythonchile.cl](https://www.pythonchile.cl){target="_blank"}  
+  * [www.iadevs.cl](https://www.iadevs.cl){target="_blank"}  
+* Participar en eventos: PyDay (Valpo), PyCon, IADevs, JSConf, etc.
+* Crear y compartir proyectos: todos los expertos están a 1 click de distancia.
+:::
+
+::: {.callout-tip title="¿Cómo aprender?" .fragment}
+Sé un **creador** no un consumidor.
+:::
+
+---
+
+## Consejo #2: Aprender NO es gratis
+
+::: columns
+::: {.column width="50%"}
+![](images/dunningkruger.jpeg){fig-align="center" height="500px" width="700px"}
+:::
+::: {.column width="50%" .incremental}
+1. Para aprender necesitas **tiempo** y **esfuerzo**.
+2. Sobreestimamos lo que podemos hacer en 1 día y subestimamos lo que podemos aprender en un año.
+3. En 1 año desearás haber partido hoy. El tiempo pasará de todos modos.
+:::
+:::
+
+---
+
+## Aprendizajes #2: ¿Y Python?
+
+::: columns
+::: {.column width="50%"}
+No importa lo que quieras aprender, hay una librería para eso:
+
+```
+pip install my_library
+```
+:::
+::: {.column width="50%"}
+![](images/libraries.jpg){fig-align="center" height="600px"}
+:::
+:::
+
+---
+
+## Consejo #3: Aprender es un juego de contacto
+
+::: columns
+::: {.column width="50%"}
+![](images/fightit.png){fig-align="center" height="600px"}
+:::
+::: {.column width="50%" .incremental}
+1. Aprender proactivamente: Cuéstionandolo todo.
+:::
+:::
+
+---
+
+## Aprendizajes #3: ¿Y Python?
+
+::: columns
+::: {.column width="50%"}
+* Usa Python para aprender lo que sea.
+:::
+::: {.column width="50%"}
+![](images/libraries.jpg){fig-align="center" height="600px"}
+:::
+:::
+
+---
+
+## Ejemplo 1: Visualización de datos
+
+![](images/mplotjourney.png){fig-align="center" height="800px"}
+
+
+--- 
 
 ```{pyodide-python}
-saludo = "Hola"
-nombre = "mundo"
-print(saludo + " " + nombre)
+required_libraries = ["pywaffle", "matplotlib"]
+await micropip.install(required_libraries)
+print("Librerias instaladas:", ",".join(required_libraries))
 ```
-
-&#32;<br><br>
 
 ```{pyodide-python}
-# ¿Que vino primero, el huevo o la gallina?
-sorted(['🥚','🐔'])
+from pywaffle import Waffle
+import matplotlib.pyplot as plt
+
+def waffle(values, colors=["#FFA500", "#4384FF", "#C0C0C0"], icons=['sun', 'cloud-showers-heavy', 'snowflake']):
+  fig, ax = plt.subplots(figsize=(8,3), layout="tight")
+  ax.set_aspect("equal")
+  Waffle.make_waffle(
+    rows=5,
+    columns=20,
+    values=values,
+    colors=colors,
+    icons=icons,
+    font_size=14,
+    ax=ax,
+  )
+  plt.show()
+print("Funcion definida: waffle")
 ```
 
-## Interacción Micrófono
+--- 
 
 ```{pyodide-python}
-from ipywebrtc import AudioRecorder, CameraStream
-camera = CameraStream(constraints={'audio': True,'video':False})
-recorder = AudioRecorder(stream=camera)
-recorder
+waffle([55, 26, 19])
 ```
+
+--- 
+
+```{pyodide-python}
+waffle( values=[7, 6, 5, 4, 3, 2, 1], 
+        colors=["lightblue", "blue", "lightgreen", "pink", "maroon", "grey", "white"], 
+        icons=["star", "meteor", "battery-full", "person", "road", "guitar", "chess-king"])
+```
+
+--- 
+
+## Ejemplo 2: Música
+
+::: {.incremental}
+* Tarjetas para memorizar notas músicales en pentagrama y guitarra.
+* Artefacto para aprender escala mayor y menor.
+* Aplicación web para analizar sonidos.
+:::
+
+---
+
+```{=html}
+<iframe width="1200" height="700" src="https://strumlit.streamlit.app/?embed=true" title="Strumlit"></iframe>
+```
+
+---
+
+## Ejemplo 3: LLMs
+
+::: {.incremental}
+* ¿Tokens?
+* ¿LLMs?
+* ¿APIs de LLMs?
+* ¿Autenticación?
+:::
+
+---
+
+```{=html}
+<iframe width="1200" height="700" src="https://cittripio.streamlit.app/v1?embed=true" title="Cittripio"></iframe>
+```
+
+
+---
+
+## Conclusión
+
+**Historias:**
+
+::: {.incremental}
+* Rubik: Puedes aprender cualquier cosa.
+* Arnold: Busca una comunidad.
+* Instant cake: Busca esforzarte.
+:::
+
+**Consejos:**
+
+::: {.incremental}
+* Cuida tu tiempo. ¡Aprende Python!
+* Aprender NO es gratis. Involúcrate en tu aprendizaje.
+:::
+
+---
+
+## Gracias
