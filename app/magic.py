@@ -8,8 +8,8 @@ import random
 VERBOSE = True
 
 avatar_dict = {
-    "user": os.path.join("assets", "images", "user.png"),
-    "assistant": os.path.join("assets", "images", "assistant.png")
+    "user": os.path.join("app", "images", "user.png"),
+    "assistant": os.path.join("app", "images", "assistant.png")
 }
 
 available_models_dict = {
@@ -56,6 +56,22 @@ def get_api_key(use_streamlit=True, verbose=VERBOSE):
         with open(".streamlit/secrets.toml", "r") as file:
             secrets = toml.load(file)
         return secrets["OPENROUTER_API_KEY"]
+
+@st.dialog(title="Código de la aplicación", width="large")
+def popup_code(filepath):
+    """
+    Shows the code of the app.
+    """
+    with open(filepath, "r") as file:
+        st.code(file.read(), language="python")
+
+def inline_code(filepath):
+    """
+    Shows the code of the app.
+    """
+    with st.expander("Código de la aplicación"):
+        with open(filepath, "r") as file:
+            st.code(file.read(), language="python")
 
 
 def get_answer(prompt="", messages=list(), model_name=DEFAULT_MODEL, api_key="", temperature=None, verbose=VERBOSE):

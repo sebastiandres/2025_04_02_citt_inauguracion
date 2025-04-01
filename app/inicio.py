@@ -1,5 +1,5 @@
 import streamlit as st
-from magic import hide_sidebar
+from app.magic import hide_sidebar
 
 
 if st.secrets["DISABLE_SIDEBAR"]:

@@ -1,6 +1,6 @@
 import streamlit as st
 
-from magic import get_answer, avatar_dict, available_models_dict
+from app.magic import get_answer, avatar_dict, available_models_dict, inline_code
 
 if "user_prompts" not in st.session_state:
     st.session_state["user_prompts"] = []
@@ -62,3 +62,5 @@ with st.expander("Historial crudo de la conversación"):
         role = info_dict["role"]
         content = info_dict["content"]
         st.markdown(f"**{role}**: {content}")
+
+inline_code(__file__)
