@@ -1,8 +1,8 @@
 import streamlit as st
 
-from app.magic import get_answer, available_models_dict, hide_sidebar, popup_code
+from app.streamlit_magic import hide_sidebar, popup_code
+from app.llm_magic import get_answer, available_models_dict
 
-# ChatCITT v2
 st.set_page_config(layout="wide", initial_sidebar_state="collapsed")
 hide_sidebar()
 

@@ -4,13 +4,15 @@ import json
 import os
 import toml
 import random
+import pandas as pd
+import tiktoken
+
+import torch
+from transformers import GPT2TokenizerFast, GPT2LMHeadModel
+
+from app.streamlit_magic import get_api_key
 
 VERBOSE = True
-
-avatar_dict = {
-    "user": os.path.join("app", "images", "user.png"),
-    "assistant": os.path.join("app", "images", "assistant.png")
-}
 
 available_models_dict = {
     # Name : API Call
@@ -27,51 +29,48 @@ available_models_dict = {
 # Default model is the first one in the available_models_dict
 DEFAULT_MODEL = list(available_models_dict.keys())[-1]
 
-def hide_sidebar():
+
+def get_tokenization(text):
     """
-    Hides the sidebar in the Streamlit app.
+    Tokenizes a text using the tokenizer of the model.
     """
-    if st.secrets["DISABLE_SIDEBAR"]:
-        st.markdown(
-        """
-        <style>
-            [data-testid="stSidebarCollapsedControl"] {
-                display: none
-            }
-        </style>
-        """,
-            unsafe_allow_html=True,
-        )
-    return
+    enc = tiktoken.get_encoding("o200k_base")
+    token_ids = enc.encode(text)
+    token_str = [enc.decode([_]) for _ in token_ids]
+    return token_str, token_ids
 
 
-def get_api_key(use_streamlit=True, verbose=VERBOSE):
+def get_next_word(user_text,max_tokens=10):
     """
-    This reads the API key from the .streamlit/secrets.toml file
+    Predicts the next word in a text using the model.
     """
-    if use_streamlit:
-        return st.secrets["OPENROUTER_API_KEY"]
-    else:
-        # Read the .streamlit/secrets.toml file
-        with open(".streamlit/secrets.toml", "r") as file:
-            secrets = toml.load(file)
-        return secrets["OPENROUTER_API_KEY"]
+    t = GPT2TokenizerFast.from_pretrained("gpt2")
+    m = GPT2LMHeadModel.from_pretrained("gpt2")
 
-@st.dialog(title="Código de la aplicación", width="large")
-def popup_code(filepath):
-    """
-    Shows the code of the app.
-    """
-    with open(filepath, "r") as file:
-        st.code(file.read(), language="python")
+    user_text = user_text.strip()
 
-def inline_code(filepath):
-    """
-    Shows the code of the app.
-    """
-    with st.expander("Código de la aplicación"):
-        with open(filepath, "r") as file:
-            st.code(file.read(), language="python")
+    encoded_text = t(user_text, return_tensors="pt")
+
+    #1. step to get the logits of the next token
+    with torch.inference_mode():
+        outputs = m(**encoded_text)
+
+    next_token_logits = outputs.logits[0, -1, :]
+
+    # 2. step to convert the logits to probabilities
+    next_token_probs = torch.softmax(next_token_logits, -1)
+
+    # 3. step to get the top 10
+    topk_next_tokens= torch.topk(next_token_probs, max_tokens)
+
+    #putting it together
+    token_list = []
+    for idx, prob in zip(topk_next_tokens.indices, topk_next_tokens.values):
+        prob_str = f"{100*prob:00.2f}%"
+        token_list.append([t.decode(idx), idx, prob_str])
+    # Convert to pandas dataframe
+    token_df = pd.DataFrame(token_list, columns=["token", "token_id", "probabilidad"])
+    return token_df
 
 
 def get_answer(prompt="", messages=list(), model_name=DEFAULT_MODEL, api_key="", temperature=None, verbose=VERBOSE):
@@ -132,23 +131,3 @@ def get_answer(prompt="", messages=list(), model_name=DEFAULT_MODEL, api_key="",
     if verbose:
         print("Response:", response_content)
     return response_content
-
-
-if __name__ == "__main__":
-    import time
-    # Get the answer
-    prompt = "¿Que animal da leche y dice miau?"
-    posible_models = list(available_models_dict.keys())
-    N_calls = 400
-    for i in range(N_calls):
-        print(i)
-        # Get the API Key from file .streamlit/secrets.toml (without running streamlit run)
-        API_KEY = get_api_key(use_streamlit=False, verbose=True)
-        # Define a random model
-        model_name = posible_models[i%len(posible_models)]
-        # Get the answer
-        answer = get_answer(prompt, api_key=API_KEY, model_name=model_name, verbose=True)
-        # Print a separator
-        print("*"*100)
-        # Wait .5 seconds
-        time.sleep(.5)
