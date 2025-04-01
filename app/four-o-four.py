@@ -1,5 +1,5 @@
 import streamlit as st
-from app.magic import hide_sidebar
+from app.streamlit_magic import hide_sidebar
 from random import randint
 import os
 
