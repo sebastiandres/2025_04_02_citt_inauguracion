@@ -242,7 +242,7 @@ Si quieres que el computador pueda interpretar el sentido de cada palabra, es ne
 
 ## Analogía
 
-Lenguaje de señas: permite representar palabras textuales (letra a letra) y completas.
+Lenguaje de señas: permite representar palabras textuales (letra a letra) y semánticas (completas).
 
 ---
 
@@ -366,7 +366,7 @@ No existe solo chatGPT (OpenAI): todos quieren un pedazo de la torta:
 
 ## ¿Cómo podemos emular chatGPT?
 
-Lo más importante es tener un LLM:
+¿Cómo acceder a un LLM?
 
 ::: columns
 ::: {.column width="50%" .center}
@@ -385,7 +385,7 @@ Lo más importante es tener un LLM:
 
 ## ¿Cómo podemos emular chatGPT?
 
-Lo más importante es tener un LLM:
+¿Cómo acceder a un LLM?
 
 ::: columns
 ::: {.column width="50%" .center}
