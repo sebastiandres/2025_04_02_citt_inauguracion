@@ -46,7 +46,11 @@ format:
 
 ## [SI]{style="color: red;"} presten atención al hombre tras la cortina
 
-{{< video videos/tras_la_cortina.mp4?raw=true height="500px" >}}
+{{< video https://www.youtube.com/embed/-RQxD4Ff7dY
+  start="20"
+  aspect-ratio="16x9"
+  width="800" 
+>}}
 
 ---
 
@@ -118,8 +122,9 @@ En el computador **TODO** se representa con bits.
 
 `bits` [`+` `contexto`]{.fragment fragment-index=1}  [`=`  `representación`]{.fragment fragment-index=2}
 
-[Eso significa que todo es discreto.  
-No existe ni el infinito ni lo continuo.]{.fragment}
+::: {.callout-tip title="Aprendizaje" .fragment}
+En el computador todo es discreto. No existe ni el infinito ni lo continuo.
+:::
 
 ---
 
@@ -364,14 +369,14 @@ No existe solo chatGPT (OpenAI): todos quieren un pedazo de la torta:
 Lo más importante es tener un LLM:
 
 ::: columns
-::: {.column width="50%" .center .fragment}
-Ejecutar localmente LLM: 
+::: {.column width="50%" .center}
+**Ejecutar localmente LLM:** 
 
 * Configuración compleja
 * Hardware costoso
 * Hacer todos los pasos del proceso
 :::
-::: {.column width="50%" .fragment}
+::: {.column width="50%"}
 ![](images/LLM_flow.png){fig-align="center"}
 :::
 :::
@@ -383,11 +388,11 @@ Ejecutar localmente LLM:
 Lo más importante es tener un LLM:
 
 ::: columns
-::: {.column width="50%" .center .fragment}
+::: {.column width="50%" .center}
 ![](images/LLM_API.png){fig-align="center"}
 :::
-::: {.column width="50%" .fragment}
-Consumir una API de LLM  
+::: {.column width="50%"}
+**Consumir una API de LLM:**  
 
 * Simple: entrega un texto, recibe un texto.
 * Pagar lo que consumes
