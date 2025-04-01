@@ -144,7 +144,9 @@ Fuente: https://www.psychologytoday.com/us/blog/inside-the-box/201401/creativity
 ::: {.column width="70%"}
 ::: {.callout-warning title="Aprendizaje #3: Efecto IKEA"}
 Queremos poder estar orgullosos de nuestro trabajo. 
+
 Queremos sentir que lo hicimos con nuestro esfuerzo.
+
 Queremos que no sea **trivial**.
 :::
 :::
