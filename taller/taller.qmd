@@ -116,7 +116,7 @@ La ilusión de la continuidad
 
 En el computador **TODO** se representa con bits.
 
-`representación` `=` `bits` `+` `contexto` 
+`bits` [`+` `contexto`]{.fragment fragment-index=1}  [`=`  `representación`]{.fragment fragment-index=2}
 
 [Eso significa que todo es discreto.  
 No existe ni el infinito ni lo continuo.]{.fragment}
@@ -243,7 +243,7 @@ Lenguaje de señas: permite representar palabras textuales (letra a letra) y com
 
 ## Actividad 2.1
 
-* **Actividad**: Ir a [https://platform.openai.com/tokenizer](https://platform.openai.com/tokenizer){target="_blank"}
+* **Actividad**: Ir a [https://cittripio.streamlit.app/t](https://cittripio.streamlit.app/t){target="_blank"}
 * **Objetivo**: Evaluar distintos textos, en distintos idiomas.
   * Español: [*La informática,​ también llamada computación, es el área de la ciencia que se encarga de estudiar la administración de métodos, técnicas y procesos con el fin de almacenar, procesar y transmitir información y datos en formato digital.*]{style="font-size: 24px;"}
   * Inglés: [*Computing is any goal-oriented activity requiring, benefiting from, or creating computing machinery. It includes the study and experimentation of algorithmic processes, and the development of both hardware and software. Computing has scientific, engineering, mathematical, technological, and social aspects.*]{style="font-size: 24px;"}
@@ -280,9 +280,18 @@ Diagrama de funcionamiento de un LLM que se filtró de OpenAI:
 
 ---
 
+## Diagrama técnico de un LLM
+
+Ok, ok, en realidad es así:
+
+![](images/LLM.png){fig-align="center" width=700px}
+
+---
+
+
 ## Actividad 2.2
 
-* **Actividad**: Ir a [https://huggingface.co/spaces/alonsosilva/NextTokenPrediction](https://huggingface.co/spaces/alonsosilva/NextTokenPrediction){target="_blank"}
+* **Actividad**: Ir a [https://cittripio.streamlit.app/nt](https://cittripio.streamlit.app/nt){target="_blank"}
 * **Objetivo**: Observar la lista de token que se muestran como posible continuación del texto.
 * **Tiempo**: 5 minutos
 
@@ -358,21 +367,32 @@ Lo más importante es tener un LLM:
 ::: {.column width="50%" .center .fragment}
 Ejecutar localmente LLM: 
 
-::: {style="font-size: 30px;"}
 * Configuración compleja
 * Hardware costoso
-* Hay que realizar todo el proceso: conversión de texto a tokens, predecir token a token, y conversión de tokens a texto.
+* Hacer todos los pasos del proceso
+:::
+::: {.column width="50%" .fragment}
+![](images/LLM_flow.png){fig-align="center"}
+:::
 :::
 
-:::
+---
 
+## ¿Cómo podemos emular chatGPT?
+
+Lo más importante es tener un LLM:
+
+::: columns
+::: {.column width="50%" .center .fragment}
+![](images/LLM_API.png){fig-align="center"}
+:::
 ::: {.column width="50%" .fragment}
 Consumir una API de LLM  
 
-::: {style="font-size: 30px;"}
 * Simple: entrega un texto, recibe un texto.
 * Pagar lo que consumes
 * Múltiples proveedores y alternativas 
+:::
 :::
 
 ---
@@ -433,8 +453,8 @@ Pasémosle la historia de la conversación en cada prompt.
 
 ::: {.incremental}
 * Es un parámetro que controla que tan aleatoria es la elección del siguiente token.
-* Temperatura = 0: Muy determinista.
-* Temperatura = 1: Muy aleatorio.
+  * Temperatura = 0: Muy determinista.
+  * Temperatura = 1: Muy aleatorio.
 :::
 
 ---
