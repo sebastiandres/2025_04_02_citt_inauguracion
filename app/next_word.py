@@ -16,3 +16,5 @@ if button_clicked:
     st.dataframe(token_df, hide_index=True)
 if c2.button(":material/code:", use_container_width=True, type="secondary"):
     popup_code(__file__)
+
+st.caption("Inspirado en [NextTokenPrediction](https://huggingface.co/spaces/alonsosilva/NextTokenPrediction) de Alonso Silva")

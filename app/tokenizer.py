@@ -17,3 +17,5 @@ if button_clicked:
     st.write(apply_colors(token_ids))
 if c2.button(":material/code:", use_container_width=True, type="secondary"):
     popup_code(__file__)
+
+st.caption("Inspirado en [tokenizer](https://platform.openai.com/tokenizer) de OpenAI")
