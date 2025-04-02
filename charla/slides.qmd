@@ -85,6 +85,7 @@ Sólo puedes aprender lo que **crees** que puedas aprender.
 :::
 :::
 ::: {.column width="25%"}
+[|]{style="font-size: 10px; margin: 0px; color:white"}
 ![](images/rata2.jpeg){fig-align="center" height="200px"}
 :::
 :::
@@ -113,6 +114,7 @@ Nadie llega lejos solo.
 
 ::: columns
 ::: {.column width="25%"}
+[|]{style="font-size: 10px; margin: 0px; color:white"}
 ![](images/apes.jpeg){fig-align="center" height="200px"}
 :::
 ::: {.column width="70%"}
@@ -151,6 +153,7 @@ Queremos que no sea **trivial**.
 :::
 :::
 ::: {.column width="25%"}
+&#32;<br>
 ![](images/karatekid.jpg){fig-align="center" height="200px"}
 :::
 :::
@@ -176,9 +179,12 @@ Queremos que no sea **trivial**.
 
 ::: columns
 ::: {.column width="50%"}
+[|]{style="font-size: 10px; margin: 0px; color:white"}
 ![](images/attention.png){fig-align="center" height="600px"}
 :::
 ::: {.column width="50%" .incremental}
+&#32;<br>
+
 * **Diseña** como inviertes tu tiempo.
 * **Atrévete** a ser impopular.
 * Otros pueden enseñarte, pero **sólo tú** puedes aprender.
@@ -208,10 +214,11 @@ Sé un **creador** no un consumidor.
 
 ::: columns
 ::: {.column width="50%"}
-![](images/dunningkruger.jpeg){fig-align="center" height="500px" width="700px"}
+[Efecto Dunning-Kruger]{style="font-size: 30px; margin: 0px;"}
+![](images/dunningkruger1.jpeg){fig-align="center"}
 :::
 ::: {.column width="50%" .incremental}
-1. Para aprender necesitas **tiempo** y **esfuerzo**.
+1. Para aprender necesitas **tiempo**, **esfuerzo** y **humildad**.
 2. Sobreestimamos lo que podemos hacer en 1 día y subestimamos lo que podemos aprender en un año.
 3. En 1 año desearás haber partido hoy. El tiempo pasará de todos modos.
 :::
@@ -223,10 +230,21 @@ Sé un **creador** no un consumidor.
 
 ::: columns
 ::: {.column width="50%"}
-No importa lo que quieras aprender, hay una librería para eso:
+¡No importa lo que quieras aprender, hay una librería para eso!
 
+<br>
+
+**Instalar:**
 ```
 pip install my_library
+```
+
+<br>
+
+**Usar:**
+```
+from my_library import my_function
+my_function()
 ```
 :::
 ::: {.column width="50%"}
@@ -243,20 +261,11 @@ pip install my_library
 ![](images/fightit.png){fig-align="center" height="600px"}
 :::
 ::: {.column width="50%" .incremental}
-1. Aprender proactivamente: Cuéstionandolo todo.
-:::
-:::
+<br>
 
----
-
-## Aprendizajes #3: ¿Y Python?
-
-::: columns
-::: {.column width="50%"}
-* Usa Python para aprender lo que sea.
-:::
-::: {.column width="50%"}
-![](images/libraries.jpg){fig-align="center" height="600px"}
+* Aprender proactivamente: Cuéstionandolo todo.
+* Aprende haciendo: crea tus materiales y proyectos.
+* Hazlo entretenido, no tengas miedo al ridículo.
 :::
 :::
 
@@ -329,6 +338,8 @@ waffle( values=[7, 6, 5, 4, 3, 2, 1],
 
 ## Ejemplo 3: LLMs
 
+Taller de "Taller de Python + IA para todos ¡Haz tu propio ChatGPT!
+
 ::: {.incremental}
 * ¿Tokens?
 * ¿LLMs?
@@ -352,7 +363,7 @@ waffle( values=[7, 6, 5, 4, 3, 2, 1],
 ::: {.incremental}
 * Rubik: Puedes aprender cualquier cosa.
 * Arnold: Busca una comunidad.
-* Instant cake: Busca esforzarte.
+* Instant cake: Valoramos lo que nos ha costado.
 :::
 
 **Consejos:**
@@ -364,4 +375,13 @@ waffle( values=[7, 6, 5, 4, 3, 2, 1],
 
 ---
 
-## Gracias
+## ¡Gracias!
+
+---
+
+## { .custom-title }
+::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
+[Del experimento al conocimiento]{style="font-size: 20px; margin: 0px;"} <br>
+[Usando Python para explorar nuevas ideas]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
+[Sebastián Flores, 02 abril 2025]{style="font-size: 25px;"}
+:::

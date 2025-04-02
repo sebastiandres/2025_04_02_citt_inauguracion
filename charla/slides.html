@@ -481,13 +481,14 @@
   }
 
   // Store cell data
-  globalThis.qpyodideCellDetails = [{"code":"required_libraries = [\"pywaffle\", \"matplotlib\"]\nawait micropip.install(required_libraries)\nprint(\"Librerias instaladas:\", \",\".join(required_libraries))","options":{"message":"true","out-height":"","results":"markup","out-width":"700px","context":"interactive","autorun":"","fig-width":7,"output":"true","classes":"","read-only":"false","label":"","dpi":72,"fig-cap":"","fig-height":5,"warning":"true","comment":""},"id":1},{"code":"from pywaffle import Waffle\nimport matplotlib.pyplot as plt\n\ndef waffle(values, colors=[\"#FFA500\", \"#4384FF\", \"#C0C0C0\"], icons=['sun', 'cloud-showers-heavy', 'snowflake']):\n  fig, ax = plt.subplots(figsize=(8,3), layout=\"tight\")\n  ax.set_aspect(\"equal\")\n  Waffle.make_waffle(\n    rows=5,\n    columns=20,\n    values=values,\n    colors=colors,\n    icons=icons,\n    font_size=14,\n    ax=ax,\n  )\n  plt.show()\nprint(\"Funcion definida: waffle\")","options":{"message":"true","out-height":"","results":"markup","out-width":"700px","context":"interactive","autorun":"","fig-width":7,"output":"true","classes":"","read-only":"false","label":"","dpi":72,"fig-cap":"","fig-height":5,"warning":"true","comment":""},"id":2},{"code":"waffle([55, 26, 19])","options":{"message":"true","out-height":"","results":"markup","out-width":"700px","context":"interactive","autorun":"","fig-width":7,"output":"true","classes":"","read-only":"false","label":"","dpi":72,"fig-cap":"","fig-height":5,"warning":"true","comment":""},"id":3},{"code":"waffle( values=[7, 6, 5, 4, 3, 2, 1], \n        colors=[\"lightblue\", \"blue\", \"lightgreen\", \"pink\", \"maroon\", \"grey\", \"white\"], \n        icons=[\"star\", \"meteor\", \"battery-full\", \"person\", \"road\", \"guitar\", \"chess-king\"])","options":{"message":"true","out-height":"","results":"markup","out-width":"700px","context":"interactive","autorun":"","fig-width":7,"output":"true","classes":"","read-only":"false","label":"","dpi":72,"fig-cap":"","fig-height":5,"warning":"true","comment":""},"id":4}];
+  globalThis.qpyodideCellDetails = [{"options":{"autorun":"","fig-cap":"","context":"interactive","out-height":"","warning":"true","output":"true","results":"markup","fig-height":5,"comment":"","read-only":"false","message":"true","classes":"","dpi":72,"fig-width":7,"out-width":"700px","label":""},"id":1,"code":"required_libraries = [\"pywaffle\", \"matplotlib\"]\nawait micropip.install(required_libraries)\nprint(\"Librerias instaladas:\", \",\".join(required_libraries))"},{"options":{"autorun":"","fig-cap":"","context":"interactive","out-height":"","warning":"true","output":"true","results":"markup","fig-height":5,"comment":"","read-only":"false","message":"true","classes":"","dpi":72,"fig-width":7,"out-width":"700px","label":""},"id":2,"code":"from pywaffle import Waffle\nimport matplotlib.pyplot as plt\n\ndef waffle(values, colors=[\"#FFA500\", \"#4384FF\", \"#C0C0C0\"], icons=['sun', 'cloud-showers-heavy', 'snowflake']):\n  fig, ax = plt.subplots(figsize=(8,3), layout=\"tight\")\n  ax.set_aspect(\"equal\")\n  Waffle.make_waffle(\n    rows=5,\n    columns=20,\n    values=values,\n    colors=colors,\n    icons=icons,\n    font_size=14,\n    ax=ax,\n  )\n  plt.show()\nprint(\"Funcion definida: waffle\")"},{"options":{"autorun":"","fig-cap":"","context":"interactive","out-height":"","warning":"true","output":"true","results":"markup","fig-height":5,"comment":"","read-only":"false","message":"true","classes":"","dpi":72,"fig-width":7,"out-width":"700px","label":""},"id":3,"code":"waffle([55, 26, 19])"},{"options":{"autorun":"","fig-cap":"","context":"interactive","out-height":"","warning":"true","output":"true","results":"markup","fig-height":5,"comment":"","read-only":"false","message":"true","classes":"","dpi":72,"fig-width":7,"out-width":"700px","label":""},"id":4,"code":"waffle( values=[7, 6, 5, 4, 3, 2, 1], \n        colors=[\"lightblue\", \"blue\", \"lightgreen\", \"pink\", \"maroon\", \"grey\", \"white\"], \n        icons=[\"star\", \"meteor\", \"battery-full\", \"person\", \"road\", \"guitar\", \"chess-king\"])"}];
 
 
   </script>
   <script type="module">
   // Declare startupMessageqpyodide globally
   globalThis.qpyodideStartupMessage = document.createElement("p");
+  globalThis.qpyodideStartupMessage.style.opacity = "0.5"; // semi-transparent
 
   // Function to set the button text
   globalThis.qpyodideSetInteractiveButtonState = function(buttonText, enableCodeButton = true) {
@@ -541,10 +542,10 @@
     firstInnerDiv.setAttribute("id", "qpyodide-status-message-area");
 
     // Create the second inner div element for "Pyodide Status" heading and contents
-    const secondInnerDiv = document.createElement("div");
-    secondInnerDiv.setAttribute("id", "qpyodide-status-message-title");
-    secondInnerDiv.classList.add("quarto-title-meta-heading");
-    secondInnerDiv.innerText = "Pyodide Status";
+    //const secondInnerDiv = document.createElement("div");
+    //secondInnerDiv.setAttribute("id", "qpyodide-status-message-title");
+    //secondInnerDiv.classList.add("quarto-title-meta-heading");
+    //secondInnerDiv.innerText = "Pyodide Status";
 
     // Create another inner div for contents
     const secondInnerDivContents = document.createElement("div");
@@ -764,11 +765,7 @@
 </div>
 </div>
 </div><div class="column" style="width:25%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/rata2.jpeg" class="quarto-figure quarto-figure-center" height="200"></p>
-</figure>
-</div>
+<p><span style="font-size: 10px; margin: 0px; color:white">|</span> <img data-src="images/rata2.jpeg" class="quarto-figure quarto-figure-center" height="200"></p>
 </div>
 </div>
 </section>
@@ -797,11 +794,7 @@
 
 <div class="columns">
 <div class="column" style="width:25%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/apes.jpeg" class="quarto-figure quarto-figure-center" height="200"></p>
-</figure>
-</div>
+<p><span style="font-size: 10px; margin: 0px; color:white">|</span> <img data-src="images/apes.jpeg" class="quarto-figure quarto-figure-center" height="200"></p>
 </div><div class="column" style="width:70%;">
 <div title="Aprendizaje #2: Comunidad">
 <div class="callout callout-warning callout-titled callout-style-default">
@@ -865,11 +858,7 @@
 </div>
 </div>
 </div><div class="column" style="width:25%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/karatekid.jpg" class="quarto-figure quarto-figure-center" height="200"></p>
-</figure>
-</div>
+<p> <br> <img data-src="images/karatekid.jpg" class="quarto-figure quarto-figure-center" height="200"></p>
 </div>
 </div>
 </section>
@@ -891,12 +880,9 @@
 <h2>Consejo #1: Economía de la atención</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/attention.png" class="quarto-figure quarto-figure-center" height="600"></p>
-</figure>
-</div>
+<p><span style="font-size: 10px; margin: 0px; color:white">|</span> <img data-src="images/attention.png" class="quarto-figure quarto-figure-center" height="600"></p>
 </div><div class="column" style="width:50%;">
+<p> <br></p>
 <ul>
 <li class="fragment"><strong>Diseña</strong> como inviertes tu tiempo.</li>
 <li class="fragment"><strong>Atrévete</strong> a ser impopular.</li>
@@ -941,14 +927,10 @@
 <h2>Consejo #2: Aprender NO es gratis</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/dunningkruger.jpeg" class="quarto-figure quarto-figure-center" width="700" height="500"></p>
-</figure>
-</div>
+<p><span style="font-size: 30px; margin: 0px;">Efecto Dunning-Kruger</span> <img data-src="images/dunningkruger1.jpeg" class="quarto-figure quarto-figure-center"></p>
 </div><div class="column" style="width:50%;">
 <ol type="1">
-<li class="fragment">Para aprender necesitas <strong>tiempo</strong> y <strong>esfuerzo</strong>.</li>
+<li class="fragment">Para aprender necesitas <strong>tiempo</strong>, <strong>esfuerzo</strong> y <strong>humildad</strong>.</li>
 <li class="fragment">Sobreestimamos lo que podemos hacer en 1 día y subestimamos lo que podemos aprender en un año.</li>
 <li class="fragment">En 1 año desearás haber partido hoy. El tiempo pasará de todos modos.</li>
 </ol>
@@ -959,8 +941,14 @@
 <h2>Aprendizajes #2: ¿Y Python?</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-<p>No importa lo que quieras aprender, hay una librería para eso:</p>
+<p>¡No importa lo que quieras aprender, hay una librería para eso!</p>
+<p><br></p>
+<p><strong>Instalar:</strong></p>
 <pre><code>pip install my_library</code></pre>
+<p><br></p>
+<p><strong>Usar:</strong></p>
+<pre><code>from my_library import my_function
+my_function()</code></pre>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -980,25 +968,12 @@
 </figure>
 </div>
 </div><div class="column" style="width:50%;">
-<ol type="1">
-<li class="fragment">Aprender proactivamente: Cuéstionandolo todo.</li>
-</ol>
-</div>
-</div>
-</section>
-<section id="aprendizajes-3-y-python" class="slide level2 center">
-<h2>Aprendizajes #3: ¿Y Python?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<p><br></p>
 <ul>
-<li>Usa Python para aprender lo que sea.</li>
+<li class="fragment">Aprender proactivamente: Cuéstionandolo todo.</li>
+<li class="fragment">Aprende haciendo: crea tus materiales y proyectos.</li>
+<li class="fragment">Hazlo entretenido, no tengas miedo al ridículo.</li>
 </ul>
-</div><div class="column" style="width:50%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="images/libraries.jpg" class="quarto-figure quarto-figure-center" height="600"></p>
-</figure>
-</div>
 </div>
 </div>
 </section>
@@ -1043,6 +1018,7 @@
 </section>
 <section id="ejemplo-3-llms" class="slide level2 center">
 <h2>Ejemplo 3: LLMs</h2>
+<p>Taller de “Taller de Python + IA para todos ¡Haz tu propio ChatGPT!</p>
 <div>
 <ul>
 <li class="fragment">¿Tokens?</li>
@@ -1063,7 +1039,7 @@
 <ul>
 <li class="fragment">Rubik: Puedes aprender cualquier cosa.</li>
 <li class="fragment">Arnold: Busca una comunidad.</li>
-<li class="fragment">Instant cake: Busca esforzarte.</li>
+<li class="fragment">Instant cake: Valoramos lo que nos ha costado.</li>
 </ul>
 </div>
 <p><strong>Consejos:</strong></p>
@@ -1075,7 +1051,13 @@
 </div>
 </section>
 <section id="gracias" class="slide level2 center">
-<h2>Gracias</h2>
+<h2>¡Gracias!</h2>
+</section>
+<section id="section-2" class="slide level2 custom-title center">
+<h2></h2>
+<div style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;">
+<p><span style="font-size: 20px; margin: 0px;">Del experimento al conocimiento</span> <br> <span style="font-size: 30px; font-weight: bold; margin: 0px">Usando Python para explorar nuevas ideas</span> <br> <span style="font-size: 25px;">Sebastián Flores, 02 abril 2025</span></p>
+</div>
 <div class="quarto-auto-generated-content">
 <div class="footer footer-default">
 

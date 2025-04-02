@@ -1,5 +1,6 @@
 // Declare startupMessageqpyodide globally
 globalThis.qpyodideStartupMessage = document.createElement("p");
+globalThis.qpyodideStartupMessage.style.opacity = "0.5"; // semi-transparent
 
 // Function to set the button text
 globalThis.qpyodideSetInteractiveButtonState = function(buttonText, enableCodeButton = true) {
@@ -53,10 +54,10 @@ function qpyodideDisplayStartupMessage(showStartupMessage) {
   firstInnerDiv.setAttribute("id", "qpyodide-status-message-area");
 
   // Create the second inner div element for "Pyodide Status" heading and contents
-  const secondInnerDiv = document.createElement("div");
-  secondInnerDiv.setAttribute("id", "qpyodide-status-message-title");
-  secondInnerDiv.classList.add("quarto-title-meta-heading");
-  secondInnerDiv.innerText = "Pyodide Status";
+  //const secondInnerDiv = document.createElement("div");
+  //secondInnerDiv.setAttribute("id", "qpyodide-status-message-title");
+  //secondInnerDiv.classList.add("quarto-title-meta-heading");
+  //secondInnerDiv.innerText = "Pyodide Status";
 
   // Create another inner div for contents
   const secondInnerDivContents = document.createElement("div");
