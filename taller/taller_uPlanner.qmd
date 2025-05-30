@@ -223,7 +223,7 @@ Lenguaje de señas: permite representar palabras textuales (letra a letra) y sem
 
 ## Actividad 2.1
 
-* **Actividad**: Ir a [https://cittripio.streamlit.app/t](https://cittripio.streamlit.app/t){target="_blank"}
+* **Actividad**: Sugerir textos para el tokenizador [http://localhost:8501/t](http://localhost:8501/t){target="_blank"} y [https://platform.openai.com/tokenizer](https://platform.openai.com/tokenizer){target="_blank"}
 * **Objetivo**: Evaluar distintos textos, en distintos idiomas.
   * Español: [*La informática,​ también llamada computación, es el área de la ciencia que se encarga de estudiar la administración de métodos, técnicas y procesos con el fin de almacenar, procesar y transmitir información y datos en formato digital.*]{style="font-size: 24px;"}
   * Inglés: [*Computing is any goal-oriented activity requiring, benefiting from, or creating computing machinery. It includes the study and experimentation of algorithmic processes, and the development of both hardware and software. Computing has scientific, engineering, mathematical, technological, and social aspects.*]{style="font-size: 24px;"}
@@ -285,7 +285,7 @@ Ok, ok, en realidad es así:
 
 ## Actividad 2.2
 
-* **Actividad**: Ir a [https://cittripio.streamlit.app/nt](https://cittripio.streamlit.app/nt){target="_blank"}
+* **Actividad**: Ir a [http://localhost:8501/nt](http://localhost:8501/nt){target="_blank"} y [https://huggingface.co/spaces/alonsosilva/NextTokenPrediction](https://huggingface.co/spaces/alonsosilva/NextTokenPrediction){target="_blank"}
 * **Objetivo**: Observar la lista de token que se muestran como posible continuación del texto.
 * **Tiempo**: 5 minutos
 
@@ -361,8 +361,11 @@ No existe solo chatGPT (OpenAI): todos quieren un pedazo de la torta:
 ## Aprendizajes 
 
 ::: {.incremental}
-* El tema no es "hacer un LLM" sino "aprender a usar un LLM".
-* 
+* LLMs han sido entrenados con millones de documentos: tienen el conocimiento potencial de todo el internet.
+* LLMs trabajan con tokens, no con palabras.
+* LLMs generan texto un token a la vez.
+* Mientras más grande es la frase proporcionada, más coherente es la respuesta... por eso la importancia de un buen prompt.
+* LLMs son una commodity
 :::
 
 ---
@@ -497,6 +500,38 @@ Pasémosle la historia de la conversación en cada prompt.
 
 ---
 
+## LLMs: Estado actual de la tecnología
+
+::: columns
+::: {.column width="50%"}
+LLMs en estado natural:
+
+[ ![](images/potro_salvaje.jpg){fig-align="center" width=100%} ]{.fragment fragment-index=1}
+:::
+::: {.column width="50%"}
+LLMs para uso en producción:
+
+[ ![](images/potro_domado.jpg){fig-align="center" width=100%} ]{.fragment fragment-index=2}
+:::
+:::
+
+---
+
+## Gold Standard
+
+Gold Standard es una metodología para evaluar un "algoritmo" cuando:
+- Existe una cantidad infinita de posibles preguntas a realizar
+- Existe una cantidad infinita de verbalizaciones posibles para respuestas correctas
+
+---
+
+## Gold Standard
+
+
+
+
+---
+
 ## Conclusión {.custom-slide}
 
 ::: {.incremental}
@@ -508,24 +543,9 @@ Pasémosle la historia de la conversación en cada prompt.
 
 ---
 
-## Preguntas & Retroalimentación {.custom-slide}
-
-::: {columns}
-::: {.column width="10%"}
-:::
-::: {.column width="50%"}
-![](images/qr_encuesta.png){fig-align="center" width=60%}
-[https://forms.fillout.com/t/jeLVGSTdDCus](https://forms.fillout.com/t/jeLVGSTdDCus){style="font-size: 24px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
-:::
-:::
-
----
-
 ## { .custom-title }
 ::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
-[Taller de Python + IA para todos]{style="font-size: 20px; margin: 0px;"} <br>
 [¡Haz tu propio ChatGPT!]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
-[Sebastián Flores, Francisco Alfaro, & Valeska Canales]{style="font-size: 25px;"}
 :::
 
 
