@@ -113,25 +113,32 @@ En el computador todo es discreto. No existe ni el infinito ni lo continuo.
 
 ---
 
+Ejemplo: derivada de una función
+
 ![](code/derivada_05.png){fig-align="center"}
 
 ---
+Ejemplo: derivada de una función
 
 ![](code/derivada_07.png){fig-align="center"}
 
 ---
+Ejemplo: derivada de una función
 
 ![](code/derivada_09.png){fig-align="center"}
 
 ---
+Ejemplo: derivada de una función
 
 ![](code/derivada_11.png){fig-align="center"}
 
 ---
+Ejemplo: derivada de una función
 
 ![](code/derivada_21.png){fig-align="center"}
 
 ---
+Ejemplo: derivada de una función
 
 ![](code/derivada_31.png){fig-align="center"}
 
@@ -506,12 +513,12 @@ Pasémosle la historia de la conversación en cada prompt.
 ::: {.column width="50%"}
 LLMs en estado natural:
 
-[ ![](images/potro_salvaje.jpg){fig-align="center" width=100%} ]{.fragment fragment-index=1}
+[ ![](images/potro_salvaje.jpg){fig-align="center" width=300px} ]{.fragment fragment-index=1}
 :::
 ::: {.column width="50%"}
 LLMs para uso en producción:
 
-[ ![](images/potro_domado.jpg){fig-align="center" width=100%} ]{.fragment fragment-index=2}
+[ ![](images/potro_domado.jpg){fig-align="center" width=300px} ]{.fragment fragment-index=2}
 :::
 :::
 
@@ -519,16 +526,34 @@ LLMs para uso en producción:
 
 ## Gold Standard
 
-Gold Standard es una metodología para evaluar un "algoritmo" cuando:
+Marco de evaluación para la mejora continua de un "algoritmo" cuando:
+
 - Existe una cantidad infinita de posibles preguntas a realizar
 - Existe una cantidad infinita de verbalizaciones posibles para respuestas correctas
 
+¿Cómo saber si un LLM es "bueno"? ¿Cómo saber si una nueva versión de LLM es "mejor" que la anterior?
 ---
 
-## Gold Standard
+## Preguntas del Gold Standard
 
+- ["Gold Standard"]{style="color: #FFD700;"}: conjunto de 100 preguntas más frecuentes del sistema, y una rúbrica de evaluación para cada una.
+- Se evalúa como responde el sistema para cada una de las preguntas, y se corrije hasta que el sistema obtenga el máximo puntaje posible.
 
+---
 
+## ¿Cómo actualizar las preguntas del Gold Standard?
+
+::: columns
+::: {.column width="60%" style="font-size: 30px;"}
+- ["Bronze Standard"]{style="color: #CD7F32;"}: Almacenar TODAS las preguntas, respuestas y retroalimentación del sistema.
+- ["Silver Standard"]{style="color: #C0C0C0;"}: Agrupar las preguntas por categorías, calcular automáticamente las preguntas más frecuentes en un cierto periodo de tiempo (semana/mes) recopiladas en el "Bronze Standard".
+- ["Gold Standard"]{style="color: #FFD700;"}: Manualmente actualizar la lista de preguntas y la rúbrica, en base a las tendencias descubiertas en el "Silver Standard"
+
+:::
+::: {.column width="35%"}
+![](images/piramide.jpg){fig-align="center" width=100%}
+:::
+:::
 
 ---
 
@@ -547,5 +572,3 @@ Gold Standard es una metodología para evaluar un "algoritmo" cuando:
 ::: {style="position: absolute; left: 700px; top: 550px; width:2000px; background-color: #ffffff; padding: 10px; border-radius: 5px;"}
 [¡Haz tu propio ChatGPT!]{style="font-size: 30px; font-weight: bold; margin: 0px"} <br>
 :::
-
-
